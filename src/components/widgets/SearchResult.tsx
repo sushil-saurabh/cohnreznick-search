@@ -1,8 +1,10 @@
-import { ISearchRendererProps } from '@/utils/common.type';
+import { ISearchResultProps, SEARCH_COMP_TYPE } from '@/utils/common.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
 import { WidgetDataType, useSearchResults, useSearchResultsSelectedFilters, widget } from '@sitecore-search/react';
+import dynamic from 'next/dynamic';
 import React from 'react';
-const SearchRenderer = React.memo(
+const SearchRenderer = dynamic(import('../SearchRenderer/searchRenderer.component'));
+const SearchResult = React.memo(
   ({
     title,
     defaultSortType,
@@ -10,7 +12,8 @@ const SearchRenderer = React.memo(
     defaultKeyphrase,
     pageFields,
     defaultItemsPerPage,
-  }: ISearchRendererProps): JSX.Element => {
+    componentType
+  }: ISearchResultProps): JSX.Element => {
     const {
       widgetRef,
       actions: { onResultsPerPageChange, onPageNumberChange, onItemClick, onRemoveFilter, onSortChange, onFacetClick },
@@ -44,12 +47,19 @@ const SearchRenderer = React.memo(
     const totalPages = Math.ceil(totalItems / (itemsPerPage !== 0 ? itemsPerPage : 1));
     const selectedSortIndex = sortChoices.findIndex((s) => s.name === sortType);
     const selectedFacetsFromApi = useSearchResultsSelectedFilters();
-    return <></>;
+    switch(componentType){
+      case SEARCH_COMP_TYPE.SEARCH:
+      return  <SearchRenderer />
+      case SEARCH_COMP_TYPE.INSIGHTS:
+      return  <></>
+      case SEARCH_COMP_TYPE.EVENTS:
+      return  <></>;
+    }
+  return <></>
   },
 );
-
 const SearchResultsWidget = widget(
-  SearchRenderer as React.FC<ISearchRendererProps>,
+  SearchResult as React.FC<ISearchResultProps>,
   WidgetDataType.SEARCH_RESULTS,
   'content',
 );

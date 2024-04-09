@@ -12,6 +12,7 @@ export default function Search() {
         defaultSortType={SEARCH_SORT_BY_FILTER.ASC}
         defaultPage={1}
         defaultItemsPerPage={10}
+        componentType="search"
       />
     </Layout>
   );
