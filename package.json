@@ -1,37 +1,30 @@
 {
-  "name": "sitecore-search-javascript",
+  "name": "cohnreznick-search",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@sitecore-search/react": "2.1.1",
-    "@sitecore-search/ui": "2.1.1",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.2",
-    "react-select": "^5.7.4",
-    "react-toggle-dark-mode": "^1.1.1",
-    "styled-components": "^6.0.4"
+    "@sitecore-search/react": "^2.2.3",
+    "next": "14.1.4",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@sitecore-search/cli": "2.1.1",
-    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-react": "^7.32.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "prettier": "^3.0.0",
-    "vite": "^4.4.5"
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "prettier": "^3.2.5",
+    "typescript": "^5"
   }
 }
