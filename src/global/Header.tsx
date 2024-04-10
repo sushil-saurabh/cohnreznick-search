@@ -1,5 +1,6 @@
 import hamMenu from '@/images/ham-menu.svg';
 import sendMail from '@/images/send-mail.svg';
+import Image from 'next/image';
 import Link from 'next/link';
 interface IHeaderProps {}
 const Header = ({}: IHeaderProps): JSX.Element => {
@@ -12,11 +13,12 @@ const Header = ({}: IHeaderProps): JSX.Element => {
               <nav className="header-main-nav">
                 <div className="logo">
                   <Link title="home" href="/" className="navbar-brand logo-black">
-                    <img
-                      src="https://www.cohnreznick.com/-/media/project/cohnreznick-sites/cohnreznick/cohnreznick-site/menu/logo.svg?iar=0&amp;hash=CC181D1DA5E764D1690089586054AFF2"
+                    <Image
+                      src="https://www.cohnreznick.com/-/media/project/cohnreznick-sites/cohnreznick/cohnreznick-site/menu/logo.svg"
                       alt="CohnReznick logo"
                       data-variantitemid="{1F11D892-A58A-4B91-884F-1BA9C3A6FB5D}"
                       data-variantfieldname="Logo"
+                      fill
                     />
                   </Link>
                 </div>
@@ -29,11 +31,11 @@ const Header = ({}: IHeaderProps): JSX.Element => {
                     </div>
                   </div>
 
-                  <a href="#" className="header-icon-actions header-mail-dark">
-                    <img src={sendMail.src} alt="send" />
+                  <Link href="#" className="header-icon-actions header-mail-dark">
+                    <Image src={sendMail.src} alt="send"   fill />
                     <div className="floating-hover">Button CTA</div>
-                  </a>
-                  <a href="#" className="header-icon-actions header-search-dark">
+                  </Link>
+                  <Link href="#" className="header-icon-actions header-search-dark">
                     <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7.01312 13.5146C10.3268 13.5146 13.0131 10.8284 13.0131 7.51465C13.0131 4.20094 10.3268 1.51465 7.01312 1.51465C3.69941 1.51465 1.01312 4.20094 1.01312 7.51465C1.01312 10.8284 3.69941 13.5146 7.01312 13.5146Z"
@@ -41,10 +43,10 @@ const Header = ({}: IHeaderProps): JSX.Element => {
                       />
                       <path d="M13.2175 15.1465L16.0136 17.9426" stroke="#ffffff" />
                     </svg>
-                  </a>
+                  </Link>
 
                   <div className="hamburger-menu">
-                    <img src={hamMenu.src} alt="hamburger" />
+                    <Image src={hamMenu.src} alt="hamburger"   fill/>
                   </div>
                 </div>
               </nav>

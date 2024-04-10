@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import '@/styles/main.scss';
 import { Environment, WidgetsProvider } from '@sitecore-search/react';
 

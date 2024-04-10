@@ -4,11 +4,21 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/search",
+        source: '/',
+        destination: '/search',
         permanent: true,
       },
     ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.cohnreznick.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
