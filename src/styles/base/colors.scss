@@ -1,0 +1,104 @@
+// ===================================================
+// Colors
+// ===================================================
+
+$black: #37424a;
+$anchor: #007cbf;
+$divider: #959595;
+
+$black: #000000;
+$text-color: #37424a;
+$white: #ffffff;
+$orange: #007cbf;
+
+$dark-blue: #323e48;
+$yellow: #ffb81d;
+$light-green: #94d600;
+$light-blue: #00aeef;
+$purple: #8348ad;
+$red: red;
+$light-gray: #f5f6f7;
+$gray: #a2aab0;
+$blue: rgba(0, 58, 112, 1);
+$blue-main: #007cbf;
+$blue-main-hover: #003a70;
+
+$blue-main: #007cbf;
+$blue-main-hover: #003a70;
+$border-spotlight-item: rgba(102, 102, 102, 0.5); // #666666; opacity: 50%;
+
+//Background Colors
+
+.whiteBground {
+    background-color: $white !important;
+}
+
+.redBground {
+    background: $red !important;
+}
+
+.yellowBground {
+    background: $yellow !important;
+}
+
+.purpleBground {
+    background: $purple !important;
+}
+
+.blueBground {
+    background: $light-blue !important;
+}
+
+.orangeBground {
+    background: $orange !important;
+}
+
+.greenBground {
+    background: $light-green !important;
+}
+
+.grayBground {
+    background: $dark-blue !important;
+}
+
+.blackBground {
+    background: $black !important;
+}
+
+.light-grayBground {
+    background: $light-gray !important;
+}
+
+// Text colors
+
+.red {
+    color: $red !important;
+}
+
+.yellow {
+    color: $yellow !important;
+}
+
+.purple {
+    color: $purple !important;
+}
+
+.blue {
+    color: $light-blue !important;
+}
+
+.darkBlue {
+    color: $dark-blue !important;
+}
+
+.orange {
+    color: #323e48 !important;
+}
+
+.green {
+    color: $light-green !important;
+}
+
+.white {
+    color: $white !important;
+}
