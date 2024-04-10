@@ -1,0 +1,82 @@
+// ===================================================
+// Icons
+// ===================================================
+
+
+%icon {
+	display: inline-block;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-rendering: auto;
+	transform: translate(0,0);
+	-webkit-transform: translate(0,0);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon($type, $position) { 
+	
+	$icon: null;
+	
+	// Icon Type
+	@if $type == 'square'             { $icon: "\61"; }
+	@else if $type == 'bullhorn'      { $icon: "\62"; }
+    @else if $type == 'breakthrough'  { $icon: "\80"; }
+	@else if $type == 'chevron-down'  { $icon: "\64"; }
+	@else if $type == 'chevron-left'  { $icon: "\65"; }
+	@else if $type == 'chevron-right' { $icon: "\66"; }
+	@else if $type == 'chevron-up'    { $icon: "\67"; }
+	@else if $type == 'chrome'        { $icon: "\68"; }
+	@else if $type == 'edge'          { $icon: "\69"; }
+	@else if $type == 'email'         { $icon: "\6a"; }
+	@else if $type == 'facebook'      { $icon: "\6b"; }
+	@else if $type == 'firefox'       { $icon: "\6c"; }
+	@else if $type == 'folder'        { $icon: "\6d"; }
+	@else if $type == 'instagram'     { $icon: "\6e"; }
+	@else if $type == 'lightbulb'     { $icon: "\6f"; }
+	@else if $type == 'linkedin'      { $icon: "\70"; }
+	@else if $type == 'location'      { $icon: "\71"; }
+	@else if $type == 'pause'         { $icon: "\72"; }
+	@else if $type == 'phone'         { $icon: "\73"; }
+	@else if $type == 'play'          { $icon: "\74"; }
+	@else if $type == 'print'         { $icon: "\75"; }
+	@else if $type == 'safari'        { $icon: "\76"; }
+	@else if $type == 'ticket'        { $icon: "\77"; }
+	@else if $type == 'close'         { $icon: "\78"; }
+	@else if $type == 'twitter'       { $icon: "\79"; }
+	@else if $type == 'user'          { $icon: "\7a"; }
+	@else if $type == 'vcard'         { $icon: "\41"; }
+	@else if $type == 'volume-down'   { $icon: "\42"; }
+	@else if $type == 'volume-off'    { $icon: "\43"; }
+	@else if $type == 'volume-up'     { $icon: "\44"; }
+	@else if $type == 'youtube'       { $icon: "\45"; }
+
+	// Icon Position
+	@if $position == 'before' {
+		@extend %icon; 
+		&:before { 
+            content: $icon; 
+            font-family: 'cohnreznick' !important;
+		} 
+	} @else if $position == 'after' { 
+		@extend %icon; 
+		&:after { 
+            content: $icon;
+	        font-family: 'cohnreznick' !important; 
+		}  
+	}
+
+}
+
+$caret--right: "\203A";
+$caret--left: "\2039";
+$double-caret--right: "\00BB";
+$arrow--right: "\25B6";
+$arrow--down: "\25BC";
+$arrow--up: "\25B2";
+$quote--left: "\201C";
+$quote--right: "\201D";

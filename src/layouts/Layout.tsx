@@ -10,7 +10,9 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
   return (
     <>
       <Header />
-      {children}
+      <div id="content" className="container">
+        {children}
+      </div>
       <Footer />
     </>
   );

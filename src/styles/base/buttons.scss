@@ -1,0 +1,102 @@
+// ===================================================
+// Buttons
+// ===================================================
+
+@mixin button--primary($paddingX, $paddingY) {
+    display: inline-block;
+    padding: $paddingY $paddingX;
+    font-size: 18px;
+    font-weight: bold;
+    color: $white !important;
+    background: $blue-main;
+    border: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        color: $white;
+        background: $blue-main-hover;
+    }
+}
+
+@mixin button--secondary($paddingX, $paddingY) {
+    padding: $paddingY $paddingX;
+    font-size: 18px;
+    color: $white !important;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: transparent;
+    border: 1px solid $white;
+}
+
+.cta-primary-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 7px 6px 25px;
+    font-size: 16px;
+    color: #112121 !important;
+    font-weight: 600;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid $white;
+    border-radius: 40px;
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 2px 7px 2px 18px;
+    }
+    .button-outer {
+        font-weight: 600;
+    }
+    .icon-button {
+        width: 40px;
+        height: 40px;
+        margin-left: 12px;
+        transition: all 0.8s ease-in-out;
+    }
+    &.primary {
+        border: 1px solid #f57b20;
+        .icon-button {
+            &::after {
+                border-color: #f57b20;
+            }
+            svg path {
+                fill: #f57b20;
+            }
+        }
+    }
+    &:hover {
+        .button-outer2:hover,
+        .button-outer:hover {
+            color: #37424a;
+            span {
+                background-color: transparent;
+            }
+            .icon-button svg path {
+                fill: #fff;
+            }
+            .icon-button:after {
+                transform: scale(0.4);
+                border-radius: 100%;
+                transition: all 0.8s ease-in-out;
+                background-color: #d24700;
+            }
+        }
+    }
+}
+
+a.cta-arrow {
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0px auto;
+    display: table;
+    padding: 15px 0 0 0;
+    z-index: 2;
+    position: relative;
+
+    .fa {
+        font-size: 14px;
+    }
+}
