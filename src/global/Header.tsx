@@ -32,7 +32,7 @@ const Header = ({}: IHeaderProps): JSX.Element => {
                   </div>
 
                   <Link href="#" className="header-icon-actions header-mail-dark">
-                    <Image src={sendMail.src} alt="send"   fill />
+                    <Image src={sendMail.src} alt="send" width={'22'} height={'22'} />
                     <div className="floating-hover">Button CTA</div>
                   </Link>
                   <Link href="#" className="header-icon-actions header-search-dark">
@@ -46,7 +46,7 @@ const Header = ({}: IHeaderProps): JSX.Element => {
                   </Link>
 
                   <div className="hamburger-menu">
-                    <Image src={hamMenu.src} alt="hamburger"   fill/>
+                    <Image src={hamMenu.src} alt="hamburger" fill />
                   </div>
                 </div>
               </nav>

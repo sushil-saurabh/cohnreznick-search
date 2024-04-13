@@ -1,0 +1,19 @@
+.facetHeader {
+  border-bottom: 1px solid rgba(162, 170, 176, 0.31);
+  .facetHeaderTitle {
+    margin: 0;
+  }
+  .facetsbtns {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    color: #323e48;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: left;
+  }
+}
