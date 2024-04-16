@@ -1,3 +1,4 @@
+//import 'bootstrap/dist/css/bootstrap.min.css'; // Import bootstrap CSS
 import '@/styles/main.scss';
 import { Environment, WidgetsProvider } from '@sitecore-search/react';
 

@@ -3,29 +3,4 @@
   .facetContentOuter {
     border-bottom: 1px solid rgba(162, 170, 176, 0.31);
   }
-  .facetHeader {
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    .facetHeaderTitle {
-      font-size: 18px;
-      letter-spacing: 0.8px;
-      font-weight: 700;
-      margin: 0;
-    }
-    .facetsbtns {
-      display: flex;
-      gap: 5px;
-      svg {
-        width: 12px;
-        height: 12px;
-        color: rgb(145, 159, 177);
-      }
-      button {
-        border: 0;
-        padding: 0;
-        background-color: transparent;
-      }
-    }
-  }
 }

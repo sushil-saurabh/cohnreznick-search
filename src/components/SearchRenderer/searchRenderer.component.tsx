@@ -3,7 +3,9 @@ import styles from './searchRenderer.module.scss';
 interface ISearchRendererProps {}
 const SearchInput = dynamic(import('../widgets/SearchInput/searchInput.component'));
 const Facets = dynamic(import('../widgets/Facets/facets.component'));
-const SearchContent = dynamic(import('../widgets/SearchContent/searchContent.component'));
+import SearchFilter from '../../components/widgets/SearchFilter/searchFilter.component';
+import Pagination from '../../components/widgets/Pagination/pagination.component';
+const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
 const FacetsOnj = [
   {
     name: 'location',
@@ -65,14 +67,20 @@ const SearchRenderer = ({}: ISearchRendererProps): JSX.Element => {
       <h1 className="content-header__title">Search Results</h1>
       <div className={styles.coveoMainSection}>
         <div className={styles.facetSection}>
-          <Facets fields={FacetsOnj}/>
+          <Facets fields={FacetsOnj} />
         </div>
         <div className={styles.resultSection}>
-          <SearchContent />
+          <div className="SearchFilter">
+            <SearchFilter />
+          </div>
+          <SearchContentComponent />
+          <div className="Pagination">
+            <Pagination />
+          </div>
         </div>
       </div>
-      {/* <div className={styles['search-btn']}>fdfdfdfdf</div>
-      <SearchInput /> */}
+
+      <SearchInput />
     </div>
   );
 };

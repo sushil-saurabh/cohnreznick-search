@@ -1,8 +1,5 @@
-export interface ISearchContent {
+export interface ISearchContentList {
   description: string;
-  highlight: {
-    description: string;
-  };
   id: string;
   image_url: string;
   index_name: string;
