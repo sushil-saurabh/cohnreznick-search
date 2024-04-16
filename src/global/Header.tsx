@@ -3,7 +3,7 @@ import sendMail from '@/images/send-mail.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 interface IHeaderProps {}
-const Header = ({}: IHeaderProps): JSX.Element => {
+const Header = (): JSX.Element => {
   return (
     <>
       <header className="header">
@@ -26,8 +26,8 @@ const Header = ({}: IHeaderProps): JSX.Element => {
                   <div className="search-section">
                     <div className="search-box-dark">
                       <input type="text" name="" id="" placeholder="Enter your search term..." />
-                      <button className="search-close"></button>
-                      <button className="search-icon-dark"></button>
+                      <button className="search-close" />
+                      <button className="search-icon-dark" />
                     </div>
                   </div>
 
