@@ -1,4 +1,6 @@
-import { ISearchResultProps, SEARCH_COMP_TYPE } from '@/utils/common.type';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import type { ISearchResultProps } from '@/utils/common.type';
+import { SEARCH_COMP_TYPE } from '@/utils/common.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
 import { WidgetDataType, useSearchResults, useSearchResultsSelectedFilters, widget } from '@sitecore-search/react';
 import dynamic from 'next/dynamic';
@@ -6,13 +8,11 @@ import React from 'react';
 const SearchRenderer = dynamic(import('../SearchRenderer/searchRenderer.component'));
 const SearchResult = React.memo(
   ({
-    title,
     defaultSortType,
     defaultPage,
     defaultKeyphrase,
-    pageFields,
     defaultItemsPerPage,
-    componentType
+    componentType,
   }: ISearchResultProps): JSX.Element => {
     const {
       widgetRef,
@@ -47,15 +47,51 @@ const SearchResult = React.memo(
     const totalPages = Math.ceil(totalItems / (itemsPerPage !== 0 ? itemsPerPage : 1));
     const selectedSortIndex = sortChoices.findIndex((s) => s.name === sortType);
     const selectedFacetsFromApi = useSearchResultsSelectedFilters();
-    switch(componentType){
-      case SEARCH_COMP_TYPE.SEARCH:
-      return  <SearchRenderer />
-      case SEARCH_COMP_TYPE.INSIGHTS:
-      return  <></>
-      case SEARCH_COMP_TYPE.EVENTS:
-      return  <></>;
-    }
-  return <></>
+    const fieldData = React.useMemo(() => {
+      return {
+        totalPages,
+        selectedSortIndex,
+        selectedFacetsFromApi,
+        articles,
+        facets,
+        onSortChange,
+        sortChoices,
+        isLoading,
+        onFacetClick,
+        isFetching,
+        page,
+        onPageNumberChange,
+        onResultsPerPageChange,
+        defaultItemsPerPage,
+      };
+    }, [
+      articles,
+      defaultItemsPerPage,
+      facets,
+      isFetching,
+      isLoading,
+      onFacetClick,
+      onPageNumberChange,
+      onResultsPerPageChange,
+      onSortChange,
+      page,
+      selectedFacetsFromApi,
+      selectedSortIndex,
+      sortChoices,
+      totalPages,
+    ]);
+    const render = React.useMemo(() => {
+      switch (componentType) {
+        case SEARCH_COMP_TYPE.SEARCH:
+          return <SearchRenderer fields={fieldData} />;
+        case SEARCH_COMP_TYPE.INSIGHTS:
+          return <></>;
+        case SEARCH_COMP_TYPE.EVENTS:
+          return <></>;
+      }
+      return <></>;
+    }, [componentType, fieldData]);
+    return <div ref={widgetRef}>{render}</div>;
   },
 );
 const SearchResultsWidget = widget(

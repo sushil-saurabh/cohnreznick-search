@@ -1,81 +1,57 @@
+import { CardViewSwitcher } from '@sitecore-search/ui';
 import dynamic from 'next/dynamic';
-import styles from './searchRenderer.module.scss';
-interface ISearchRendererProps {}
-const SearchInput = dynamic(import('../widgets/SearchInput/searchInput.component'));
-const Facets = dynamic(import('../widgets/Facets/facets.component'));
-import SearchFilter from '../../components/widgets/SearchFilter/searchFilter.component';
+import React from 'react';
 import Pagination from '../../components/widgets/Pagination/pagination.component';
+import type { GRID_TYPE } from '../widgets/SearchContent/searchContent.type';
+import SearchInput from '../widgets/SearchInput/searchInput.component';
+import styles from './searchRenderer.module.scss';
+import type { ISearchRendererProps } from './searchRenderer.type';
 const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
-const FacetsOnj = [
-  {
-    name: 'location',
-    label: 'Property',
-    value: [
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoibG9jYXRpb24iLCJ2YWx1ZSI6IkhpbmNrbGV5In0=',
-        text: 'Hinckley',
-        count: 13,
-      },
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoibG9jYXRpb24iLCJ2YWx1ZSI6Ik1pbGxlIExhY3MifQ==',
-        text: 'Mille Lacs',
-        count: 12,
-      },
-    ],
-  },
-  {
-    name: 'type',
-    label: 'Category',
-    value: [
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoidHlwZSIsInZhbHVlIjoiU2l0ZSBQYWdlIn0=',
-        text: 'Site Page',
-        count: 21,
-      },
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoidHlwZSIsInZhbHVlIjoiTG9kZ2luZyJ9',
-        text: 'Lodging',
-        count: 9,
-      },
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoidHlwZSIsInZhbHVlIjoiQW1lbml0eSJ9',
-        text: 'Amenity',
-        count: 6,
-      },
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoidHlwZSIsInZhbHVlIjoiRGluaW5nIn0=',
-        text: 'Dining',
-        count: 5,
-      },
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoidHlwZSIsInZhbHVlIjoiUHJvbW90aW9uIn0=',
-        text: 'Promotion',
-        count: 4,
-      },
-      {
-        id: 'facetid_eyJ0eXBlIjoiZXEiLCJuYW1lIjoidHlwZSIsInZhbHVlIjoiRXZlbnQifQ==',
-        text: 'Event',
-        count: 1,
-      },
-    ],
-  },
-];
-const SearchRenderer = ({}: ISearchRendererProps): JSX.Element => {
-  const xxx = [];
+const SearchFilter = dynamic(import('../widgets/SearchFilter/searchFilter.component'));
+const Facets = dynamic(import('../widgets/Facets/facets.component'));
+const Skeleton = dynamic(import('react-loading-skeleton'));
+const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
+  const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
+  const {
+    onSortChange,
+    facets,
+    selectedSortIndex,
+    sortChoices,
+    isLoading,
+    isFetching,
+    onFacetClick,
+    page,
+    totalPages,
+    onResultsPerPageChange,
+    onPageNumberChange,
+    defaultItemsPerPage,
+  } = fields;
   return (
     <div className="main-container">
       <h1 className="content-header__title">Search Results</h1>
       <div className={styles.coveoMainSection}>
         <div className={styles.facetSection}>
-          <Facets fields={FacetsOnj} />
+          {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
         <div className={styles.resultSection}>
           <div className="SearchFilter">
-            <SearchFilter />
+            <SearchFilter
+              fields={{ defaultCardView: view, onSortChange, onToggle: setView, selectedSortIndex, sortChoices }}
+            />
           </div>
-          <SearchContentComponent />
+          {!isFetching ? (
+            <SearchContentComponent fields={fields.articles} gridType={view as GRID_TYPE} />
+          ) : (
+            <Skeleton count={10} height={100} />
+          )}
           <div className="Pagination">
-            <Pagination />
+            {!isLoading ? (
+              <Pagination
+                fields={{ page, totalPages, onResultsPerPageChange, onPageNumberChange, defaultItemsPerPage }}
+              />
+            ) : (
+              <Skeleton count={1} height={40} />
+            )}
           </div>
         </div>
       </div>

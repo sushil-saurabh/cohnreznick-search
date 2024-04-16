@@ -1,26 +1,27 @@
 import { CheckIcon } from '@radix-ui/react-icons';
-import { AccordionFacets } from '@sitecore-search/ui';
+import { AccordionFacets, SearchResultsAccordionFacets } from '@sitecore-search/ui';
 import styles from './facets.module.scss';
-import { IFacets } from './facets.type';
-interface IFacetsProps {
-  fields: Array<IFacets>;
-}
+import type { IFacetsProps } from './facets.type';
 const Facets = ({ fields }: IFacetsProps): JSX.Element => {
+  const { facets, onFacetClick } = fields;
   return (
     <div className={styles.facetsOuter}>
-      <AccordionFacets.Root
+      <SearchResultsAccordionFacets
         defaultFacetTypesExpandedList={[]}
         onFacetTypesExpandedListChange={() => {}}
-        onFacetValueClick={() => {}}
+        onFacetValueClick={(e) => {
+          console.log(e);
+          onFacetClick(e);
+        }}
       >
-        {fields.map((facts, index) => (
-          <AccordionFacets.Facet facetId={facts.name} key={facts.name} className="facetHeader">
+        {facets.map((f) => (
+          <AccordionFacets.Facet facetId={f.name} key={f.name} className="facetHeader">
             <AccordionFacets.Header className="facetHeaderTitle">
-              <AccordionFacets.Trigger className="facetsbtns">{facts.label}</AccordionFacets.Trigger>
+              <AccordionFacets.Trigger className="facetsbtns">{f.label}</AccordionFacets.Trigger>
             </AccordionFacets.Header>
             <AccordionFacets.Content>
               <AccordionFacets.ValueList>
-                {facts.value.map((v, index) => (
+                {f.value.map((v, index) => (
                   <AccordionFacets.Item {...{ index, facetValueId: v.id }} key={v.id}>
                     <AccordionFacets.ItemCheckbox>
                       <AccordionFacets.ItemCheckboxIndicator>
@@ -36,7 +37,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
             </AccordionFacets.Content>
           </AccordionFacets.Facet>
         ))}
-      </AccordionFacets.Root>
+      </SearchResultsAccordionFacets>
     </div>
   );
 };

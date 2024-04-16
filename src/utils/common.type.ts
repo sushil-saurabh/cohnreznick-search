@@ -1,4 +1,4 @@
-import type { SearchResultsStoreState } from '@sitecore-search/react';
+import type { EntityModel, SearchResponseFacet, SearchResultsStoreState } from '@sitecore-search/react';
 export interface ISearchPageFields {
   ErrorLogo: string;
   ErrorMessage: string;
@@ -19,9 +19,9 @@ export interface ISearchResultProps {
 }
 
 export type HighlightModel = {
-  description?: Array<string>;
-  subtitle?: Array<string>;
-  title?: Array<string>;
+  description?: string[];
+  subtitle?: string[];
+  title?: string[];
 };
 
 export interface IApplicationSearchProps {
@@ -49,4 +49,25 @@ export enum SEARCH_COMP_TYPE {
   EVENTS = 'events',
   INSIGHTS = 'insights',
   NEWS = 'news',
+}
+export interface ISearchResultFields {
+  fields: {
+    totalPages: number;
+    selectedSortIndex: number;
+    selectedFacetsFromApi?: any;
+    articles: EntityModel[];
+    facets: SearchResponseFacet[];
+    isLoading: boolean;
+    isFetching: boolean;
+    onFacetClick: any;
+    onSortChange: (value?: any | undefined) => void;
+    sortChoices: Array<{
+      name: string;
+      label: string;
+    }>;
+    page: number;
+    onPageNumberChange: (e: any) => void;
+    onResultsPerPageChange: (e: any) => void;
+    defaultItemsPerPage: number;
+  };
 }

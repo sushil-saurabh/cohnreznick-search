@@ -1,3 +1,6 @@
+export interface IFacetsProps {
+  fields: { onFacetClick: any; facets: IFacets[] };
+}
 export interface IFacets {
   name: string;
   label: string;
