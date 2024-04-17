@@ -1,12 +1,13 @@
-import Link from 'next/link';
-import { ISearchContent } from './searchContent.type';
-import SearchContentList from './SearchContentType/SearchContentListView/searchContentList.component';
+import { CardViewSwitcher } from '@sitecore-search/ui';
 import SearchContentGrid from './SearchContentType/SearchContentGridView/searchContentGrid.component';
+import SearchContentList from './SearchContentType/SearchContentListView/searchContentList.component';
+import { type ISearchContentComponent } from './searchContent.type';
 
-interface ISearchContentComponent {}
-
-const SearchContentComponent = ({}: ISearchContentComponent): JSX.Element => {
-  const gridList = true;
-  return <>{gridList ? <SearchContentList /> : <SearchContentGrid />}</>;
+const SearchContentComponent = ({ gridType, fields }: ISearchContentComponent): JSX.Element => {
+  return gridType === CardViewSwitcher.CARD_VIEW_LIST ? (
+    <SearchContentList fields={fields} />
+  ) : (
+    <SearchContentGrid fields={fields} />
+  );
 };
 export default SearchContentComponent;

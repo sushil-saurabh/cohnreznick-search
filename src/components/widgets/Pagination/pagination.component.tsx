@@ -1,21 +1,18 @@
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import styles from './searchContent.module.scss';
-import { AccordionFacets, CardViewSwitcher, Pagination as SPagination, Select, SortSelect } from '@sitecore-search/ui';
-import { ArrowLeftIcon, ArrowRightIcon, GridIcon, ListBulletIcon } from '@radix-ui/react-icons';
-import { useContext, useState } from 'react';
-import { useSearchResults, useSearchResultsSelectedFilters } from '@sitecore-search/react';
-import { HIGHLIGHT_DATA } from '../utils';
+import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
+import { Pagination as SPagination, Select, SortSelect } from '@sitecore-search/ui';
+import type { IPaginationProps } from './pagination.type';
 
-interface IPaginationProps {}
-
-const Pagination = ({}: IPaginationProps): JSX.Element => {
+const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
+  const { defaultItemsPerPage, onPageNumberChange, onResultsPerPageChange, page, totalPages } = fields;
   return (
     <>
       <div>
         <div>
           <label>Results Per Page</label>
-          <Select.Root defaultValue={String(24)} onValueChange={(v) => {}}>
+          <Select.Root
+            defaultValue={String(defaultItemsPerPage)}
+            onValueChange={(v) => onResultsPerPageChange({ numItems: Number(v) })}
+          >
             <Select.Trigger>
               <Select.SelectValue />
               <Select.Icon />
@@ -37,7 +34,12 @@ const Pagination = ({}: IPaginationProps): JSX.Element => {
             </Select.Content>
           </Select.Root>
         </div>
-        <SPagination.Root currentPage={1} defaultCurrentPage={1} totalPages={45} onPageChange={(v) => {}}>
+        <SPagination.Root
+          currentPage={page}
+          defaultCurrentPage={1}
+          totalPages={totalPages}
+          onPageChange={(v) => onPageNumberChange({ page: v })}
+        >
           <SPagination.PrevPage onClick={(e) => e.preventDefault()}>
             <ArrowLeftIcon />
           </SPagination.PrevPage>
@@ -45,7 +47,12 @@ const Pagination = ({}: IPaginationProps): JSX.Element => {
             {(pagination) =>
               SPagination.paginationLayout(pagination, {}).map(({ page, type }) =>
                 type === 'page' ? (
-                  <SPagination.Page key={page} aria-label={`Page ${page}`} page={1} onClick={(e) => e.preventDefault()}>
+                  <SPagination.Page
+                    key={page}
+                    aria-label={`Page ${page}`}
+                    page={page as number}
+                    onClick={(e) => e.preventDefault()}
+                  >
                     {page}
                   </SPagination.Page>
                 ) : (
