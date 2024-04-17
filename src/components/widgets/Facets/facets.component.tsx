@@ -18,8 +18,8 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
             <AccordionFacets.Header className="facetHeaderTitle">
               <AccordionFacets.Trigger className="facetsbtns">{facts.label}</AccordionFacets.Trigger>
             </AccordionFacets.Header>
-            <AccordionFacets.Content>
-              <AccordionFacets.ValueList>
+            <AccordionFacets.Content className="facetsContentOuter">
+              <AccordionFacets.ValueList className="facetsList facetValues">
                 {facts.value.map((v, index) => (
                   <AccordionFacets.Item {...{ index, facetValueId: v.id }} key={v.id}>
                     <AccordionFacets.ItemCheckbox>
@@ -28,7 +28,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
                       </AccordionFacets.ItemCheckboxIndicator>
                     </AccordionFacets.ItemCheckbox>
                     <AccordionFacets.ItemLabel>
-                      {v.text} {v.count && `(${v.count})`}
+                      <span> {v.text}</span> <span>{v.count && `(${v.count})`}</span>
                     </AccordionFacets.ItemLabel>
                   </AccordionFacets.Item>
                 ))}

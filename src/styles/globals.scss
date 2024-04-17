@@ -314,12 +314,20 @@ a {
     color: rgb(49, 58, 69);
     display: flex;
     gap: 10px;
+    cursor: pointer;
     .testOuter {
       display: flex;
       justify-content: space-between;
       min-width: calc(100% - 30px);
     }
-    .checktype {
+    &:hover {
+      background-color: #e6ecf0;
+    }
+    label {
+      width: 100%;
+      cursor: pointer;
+    }
+    button {
       border-radius: 50%;
       position: relative;
       width: 20px;
