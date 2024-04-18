@@ -1,4 +1,5 @@
 import type { EntityModel, SearchResponseFacet, SearchResultsStoreState } from '@sitecore-search/react';
+import type { ChangeEvent } from 'react';
 export interface ISearchPageFields {
   ErrorLogo: string;
   ErrorMessage: string;
@@ -69,5 +70,8 @@ export interface ISearchResultFields {
     onPageNumberChange: (e: any) => void;
     onResultsPerPageChange: (e: any) => void;
     defaultItemsPerPage: number;
+    keyphraseHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+    itemsPerPage: number;
+    totalItems: number;
   };
 }

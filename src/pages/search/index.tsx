@@ -14,7 +14,7 @@ export default function Search() {
         defaultKeyphrase={q as string}
         defaultSortType={SEARCH_SORT_BY_FILTER.DESC}
         defaultPage={1}
-        defaultItemsPerPage={24}
+        defaultItemsPerPage={10}
         componentType="search"
       />
     </Layout>

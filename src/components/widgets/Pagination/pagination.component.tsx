@@ -7,7 +7,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
   return (
     <>
       <div>
-        <div>
+        <div className="hide">
           <label>Results Per Page</label>
           <Select.Root
             defaultValue={String(defaultItemsPerPage)}
