@@ -311,24 +311,40 @@ a {
     font-size: 14px;
     letter-spacing: 0.8px;
     font-weight: 700;
-    color: rgb(49, 58, 69);
+    color: #313a45;
     display: flex;
     gap: 10px;
+    cursor: pointer;
     .testOuter {
       display: flex;
       justify-content: space-between;
       min-width: calc(100% - 30px);
     }
-    .checktype {
+    &:hover {
+      background-color: #e6ecf0;
+    }
+    label {
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
       border-radius: 50%;
       position: relative;
-      width: 20px;
+      width: 22px;
       height: 20px;
       background: #fff;
       border: 1px solid #7e8c9a;
       outline: none;
       transition: all 0.2s;
       cursor: pointer;
+      svg {
+        margin-top: 2px;
+        path {
+          fill: #007cbf;
+        }
+      }
     }
   }
 }

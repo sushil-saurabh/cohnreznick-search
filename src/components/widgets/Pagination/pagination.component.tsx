@@ -7,7 +7,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
   return (
     <>
       <div>
-        <div>
+        <div className="hide">
           <label>Results Per Page</label>
           <Select.Root
             defaultValue={String(defaultItemsPerPage)}
@@ -38,6 +38,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
           currentPage={page}
           defaultCurrentPage={1}
           totalPages={totalPages}
+          className="paginationOuter"
           onPageChange={(v) => onPageNumberChange({ page: v })}
         >
           <SPagination.PrevPage onClick={(e) => e.preventDefault()}>

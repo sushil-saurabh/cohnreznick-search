@@ -1,3 +1,5 @@
+import type { EntityModel } from '@sitecore-search/react';
+
 export interface ISearchFilterProps {
   fields: {
     selectedSortIndex: number;
@@ -8,5 +10,11 @@ export interface ISearchFilterProps {
       name: string;
       label: string;
     }>;
+    page: number;
+    defaultItemsPerPage: number;
+    totalPages: number;
+    itemsPerPage: number;
+    totalItems: number;
+    articles: EntityModel[];
   };
 }

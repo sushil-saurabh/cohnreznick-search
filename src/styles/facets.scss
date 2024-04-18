@@ -15,5 +15,16 @@
     width: 100%;
     padding: 10px 20px;
     text-align: left;
+    background-image: url(../images/updownarrow.svg);
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    background-size: 12px;
+  }
+}
+
+.facetsContentOuter {
+  .facetsList {
+    list-style: none;
+    margin: 0;
   }
 }

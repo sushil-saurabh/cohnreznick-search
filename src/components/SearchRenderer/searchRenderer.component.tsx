@@ -25,6 +25,9 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
     onResultsPerPageChange,
     onPageNumberChange,
     defaultItemsPerPage,
+    articles,
+    totalItems,
+    itemsPerPage,
   } = fields;
   return (
     <div className="main-container">
@@ -34,9 +37,24 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
         <div className={styles.resultSection}>
+          <div className="PageSearch">
+            <SearchInput />
+          </div>
           <div className="SearchFilter">
             <SearchFilter
-              fields={{ defaultCardView: view, onSortChange, onToggle: setView, selectedSortIndex, sortChoices }}
+              fields={{
+                defaultCardView: view,
+                onSortChange,
+                onToggle: setView,
+                selectedSortIndex,
+                sortChoices,
+                page,
+                totalPages,
+                defaultItemsPerPage,
+                articles,
+                totalItems,
+                itemsPerPage,
+              }}
             />
           </div>
           {!isFetching ? (
@@ -55,8 +73,6 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
           </div>
         </div>
       </div>
-
-      <SearchInput />
     </div>
   );
 };

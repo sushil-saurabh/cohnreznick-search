@@ -1,0 +1,82 @@
+.searchArticlesListView {
+  a {
+    display: flex;
+    padding: 30px;
+    border-right: 1px solid rgba(162, 170, 176, 0);
+    border-left: 1px solid rgba(162, 170, 176, 0);
+    border-bottom: 1px solid rgba(162, 170, 176, 0.31);
+    text-decoration: none;
+    color: #000;
+    flex-direction: column;
+    &:hover {
+      background: #f3f4f4;
+      border-right: 1px solid rgba(162, 170, 176, 0.31);
+      border-left: 1px solid rgba(162, 170, 176, 0.31);
+    }
+    .Title {
+      margin: 0;
+      font-weight: 600;
+      font-size: 18px;
+      text-transform: initial;
+      color: #323e48;
+      margin-bottom: 7.5px;
+      transition: all 0.3s ease-in-out;
+      letter-spacing: 0;
+      text-align: left;
+    }
+    .publishDate {
+      vertical-align: middle;
+      font-size: 16px;
+      font-weight: 400;
+      color: #323e48;
+      line-height: 24px;
+    }
+    .Subtitle {
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      color: #323e48;
+      text-align: left;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      &:empty {
+        display: none;
+      }
+    }
+    .Type {
+      span {
+        border: 1px solid #007cbf;
+        padding: 2px 4px;
+        color: #323e48;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-right: 3px;
+        margin-bottom: 3px;
+        float: left;
+        line-height: normal;
+        &:empty {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.filterOuter {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(162, 170, 176, 0.31);
+  .totalItems {
+    color: #323e48;
+    font-size: 14px;
+    .highlight {
+      font-weight: 700;
+    }
+  }
+}

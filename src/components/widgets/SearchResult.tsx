@@ -1,9 +1,17 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ISearchResultProps } from '@/utils/common.type';
 import { SEARCH_COMP_TYPE } from '@/utils/common.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
-import { WidgetDataType, useSearchResults, useSearchResultsSelectedFilters, widget } from '@sitecore-search/react';
+import {
+  FilterEqual,
+  WidgetDataType,
+  useSearchResults,
+  useSearchResultsSelectedFilters,
+  widget,
+} from '@sitecore-search/react';
 import dynamic from 'next/dynamic';
+import type { ChangeEvent } from 'react';
 import React from 'react';
 const SearchRenderer = dynamic(import('../SearchRenderer/searchRenderer.component'));
 const SearchResult = React.memo(
@@ -14,9 +22,19 @@ const SearchResult = React.memo(
     defaultItemsPerPage,
     componentType,
   }: ISearchResultProps): JSX.Element => {
+    const filterEqual = new FilterEqual('index_name', process.env.NEXT_PUBLIC_SEARCH_INDEX_NAME) as FilterEqual;
+    //const filterEqual = new FilterEqual('index_name', 'cohnreznick-dev');
     const {
       widgetRef,
-      actions: { onResultsPerPageChange, onPageNumberChange, onItemClick, onRemoveFilter, onSortChange, onFacetClick },
+      actions: {
+        onResultsPerPageChange,
+        onPageNumberChange,
+        onItemClick,
+        onRemoveFilter,
+        onSortChange,
+        onFacetClick,
+        onKeyphraseChange,
+      },
       state: { sortType, page, itemsPerPage },
       queryResult: {
         isLoading,
@@ -35,7 +53,8 @@ const SearchResult = React.memo(
           .setSearchQueryHighlightFragmentSize(500)
           .setSearchQueryHighlightFields(['subtitle', 'description'])
           .setSearchQueryHighlightPreTag(HIGHLIGHT_DATA.pre)
-          .setSearchQueryHighlightPostTag(HIGHLIGHT_DATA.post);
+          .setSearchQueryHighlightPostTag(HIGHLIGHT_DATA.post)
+          .setSearchFilter(filterEqual);
       },
       state: {
         sortType: defaultSortType,
@@ -44,6 +63,13 @@ const SearchResult = React.memo(
         keyphrase: defaultKeyphrase,
       },
     });
+    const keyphraseHandler = React.useCallback(
+      (event: ChangeEvent<HTMLInputElement>) => {
+        const target = event.target;
+        onKeyphraseChange({ keyphrase: target.value });
+      },
+      [onKeyphraseChange],
+    );
     const totalPages = Math.ceil(totalItems / (itemsPerPage !== 0 ? itemsPerPage : 1));
     const selectedSortIndex = sortChoices.findIndex((s) => s.name === sortType);
     const selectedFacetsFromApi = useSearchResultsSelectedFilters();
@@ -63,6 +89,9 @@ const SearchResult = React.memo(
         onPageNumberChange,
         onResultsPerPageChange,
         defaultItemsPerPage,
+        itemsPerPage,
+        totalItems,
+        keyphraseHandler,
       };
     }, [
       articles,
@@ -79,6 +108,9 @@ const SearchResult = React.memo(
       selectedSortIndex,
       sortChoices,
       totalPages,
+      itemsPerPage,
+      totalItems,
+      keyphraseHandler,
     ]);
     const render = React.useMemo(() => {
       switch (componentType) {
