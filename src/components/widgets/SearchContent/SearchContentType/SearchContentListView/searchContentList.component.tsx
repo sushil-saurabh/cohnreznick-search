@@ -13,7 +13,7 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
               </div>
               <div className="Subtitle" dangerouslySetInnerHTML={{ __html: a.description }} />
               <div className="Type">
-                <span>{a.content_type ? a.content_type : 'Unknown'}</span>
+                <span>{a.content_type ? a.content_type : ''}</span>
                 {a.selected_industries.map((itm: string, index: number) => (
                   <span key={index}>{itm}</span>
                 ))}
