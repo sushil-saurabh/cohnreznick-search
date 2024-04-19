@@ -468,7 +468,7 @@ export const HEADER_LINK = {
       url: 'javascript:void(0)',
       children: [
         {
-          title: 'All Services',
+          title: 'Services',
           backImage: {
             src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
           },
