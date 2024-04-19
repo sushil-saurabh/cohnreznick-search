@@ -1,0 +1,43 @@
+.noResultOuter {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    li {
+      text-align: center;
+    }
+  }
+  .resultFor {
+    font-size: 36px;
+    color: #323e48;
+    line-height: 1;
+    margin: 50px 30px 30px;
+    text-align: center;
+  }
+  .lastActionbutton {
+    color: #007cbf;
+    font-weight: 400;
+    padding: 10px 20px;
+    border: 2px solid;
+    width: auto;
+    display: table;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Source Sans Pro';
+    &:hover {
+      background-color: #007cbf;
+      color: #fff;
+    }
+  }
+  .searchTipsInfo {
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}

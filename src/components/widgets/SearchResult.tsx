@@ -92,6 +92,7 @@ const SearchResult = React.memo(
         itemsPerPage,
         totalItems,
         keyphraseHandler,
+        onRemoveFilter,
       };
     }, [
       articles,
@@ -111,6 +112,7 @@ const SearchResult = React.memo(
       itemsPerPage,
       totalItems,
       keyphraseHandler,
+      onRemoveFilter,
     ]);
     const render = React.useMemo(() => {
       switch (componentType) {
