@@ -37,7 +37,7 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   return (
     <div className="main-container">
       <h1 className="content-header__title">Search Results</h1>
-      <div className={`coveoMainSection ${totalItems !== 0 ? '' : 'full'}`}>
+      <div className={`coveoMainSection ${isFetching || totalItems ? '' : 'full'}`}>
         <div className="facetSection">
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
@@ -45,7 +45,7 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
           <div className="PageSearch">
             <SearchInput />
           </div>
-          {totalItems ? (
+          {isFetching || totalItems ? (
             <>
               {/* will use latter <button className="filterButtonMobile">Filter</button> */}
               <ul className="fiterSelected">
