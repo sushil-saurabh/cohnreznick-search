@@ -1,9 +1,12 @@
 import { GridIcon, ListBulletIcon } from '@radix-ui/react-icons';
 import { CardViewSwitcher, SortSelect } from '@sitecore-search/ui';
 import type { ISearchFilterProps } from './searchFilter.type';
+import { useRouter } from 'next/router';
 
 const SearchFilter = ({ fields }: ISearchFilterProps): JSX.Element => {
   const { selectedSortIndex, onSortChange, sortChoices, page, itemsPerPage, totalItems, articles } = fields;
+  const router = useRouter();
+  const { q } = router.query;
   return (
     <>
       {/* <CardViewSwitcher.Root onValueChange={onToggle} defaultValue={defaultCardView}>
@@ -23,7 +26,7 @@ const SearchFilter = ({ fields }: ISearchFilterProps): JSX.Element => {
 
           <b>
             Showing {itemsPerPage * (page - 1) + 1} - {itemsPerPage * (page - 1) + articles.length} of {totalItems}{' '}
-            results
+            {q && `for ${q}`}
           </b>
         </div>
         <SortSelect.Root defaultValue={sortChoices[selectedSortIndex]?.name} onValueChange={onSortChange}>

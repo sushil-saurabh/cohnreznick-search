@@ -12,6 +12,7 @@ const Facets = dynamic(import('../widgets/Facets/facets.component'));
 const Skeleton = dynamic(import('react-loading-skeleton'));
 const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
+
   const {
     onSortChange,
     facets,
@@ -24,53 +25,72 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
     totalPages,
     onResultsPerPageChange,
     onPageNumberChange,
+    onRemoveFilter,
     defaultItemsPerPage,
     articles,
     totalItems,
     itemsPerPage,
+    selectedFacetsFromApi,
   } = fields;
   return (
     <div className="main-container">
       <h1 className="content-header__title">Search Results</h1>
-      <div className={styles.coveoMainSection}>
-        <div className={styles.facetSection}>
+      <div className="coveoMainSection">
+        <div className="facetSection">
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
-        <div className={styles.resultSection}>
+        <div className="resultSection">
           <div className="PageSearch">
             <SearchInput />
           </div>
-          <div className="SearchFilter">
-            <SearchFilter
-              fields={{
-                defaultCardView: view,
-                onSortChange,
-                onToggle: setView,
-                selectedSortIndex,
-                sortChoices,
-                page,
-                totalPages,
-                defaultItemsPerPage,
-                articles,
-                totalItems,
-                itemsPerPage,
-              }}
-            />
-          </div>
-          {!isFetching ? (
-            <SearchContentComponent fields={fields.articles} gridType={view as GRID_TYPE} />
+          {totalItems ? (
+            <>
+              <button className="filterButtonMobile">Filter</button>
+              <ul className="fiterSelected">
+                {selectedFacetsFromApi.map((selectedFacet: any) => (
+                  <li key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}>
+                    <div>
+                      {selectedFacet.facetLabel}: {selectedFacet.valueLabel}
+                    </div>
+                    <button onClick={() => onRemoveFilter(selectedFacet)}>X</button>
+                  </li>
+                ))}
+              </ul>
+              <div className="SearchFilter">
+                <SearchFilter
+                  fields={{
+                    defaultCardView: view,
+                    onSortChange,
+                    onToggle: setView,
+                    selectedSortIndex,
+                    sortChoices,
+                    page,
+                    totalPages,
+                    defaultItemsPerPage,
+                    articles,
+                    totalItems,
+                    itemsPerPage,
+                  }}
+                />
+              </div>
+              {!isFetching ? (
+                <SearchContentComponent fields={fields.articles} gridType={view as GRID_TYPE} />
+              ) : (
+                <Skeleton count={10} height={100} />
+              )}
+              <div className="Pagination">
+                {!isLoading ? (
+                  <Pagination
+                    fields={{ page, totalPages, onResultsPerPageChange, onPageNumberChange, defaultItemsPerPage }}
+                  />
+                ) : (
+                  <Skeleton count={1} height={40} />
+                )}
+              </div>
+            </>
           ) : (
-            <Skeleton count={10} height={100} />
+            <>sssss</>
           )}
-          <div className="Pagination">
-            {!isLoading ? (
-              <Pagination
-                fields={{ page, totalPages, onResultsPerPageChange, onPageNumberChange, defaultItemsPerPage }}
-              />
-            ) : (
-              <Skeleton count={1} height={40} />
-            )}
-          </div>
         </div>
       </div>
     </div>

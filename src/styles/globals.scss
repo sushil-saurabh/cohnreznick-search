@@ -298,7 +298,42 @@ a {
     padding-right: 0;
   }
 }
-
+.content-header__title {
+  font-size: 55px;
+  line-height: 60px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.coveoMainSection {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-basis: auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+  .facetSection {
+    width: 100%;
+    max-width: 28.01019%;
+    border-right: 1px solid rgba(162, 170, 176, 0.31);
+    padding: 5px 30px 5px 0;
+    @media (max-width: 991px) {
+      padding: 5px;
+      max-width: 100%;
+    }
+  }
+  .resultSection {
+    flex: auto;
+    padding: 0px 0px 10px 30px;
+    width: 100%;
+    max-width: 100%;
+    @media (max-width: 991px) {
+      padding: 10px;
+    }
+  }
+}
 /* custom stylings */
 
 .facetValues {
