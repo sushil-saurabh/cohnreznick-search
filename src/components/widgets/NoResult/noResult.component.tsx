@@ -10,7 +10,9 @@ const NoResult = (): JSX.Element => {
   return (
     <>
       <div className="noResultOuter">
-        <div className="resultFor">{q && `No results for ${q}`}</div>
+        <div className="resultFor">
+          No results for <strong>{q && `${q}`}</strong>
+        </div>
         <button className="lastActionbutton" onClick={handleRemoveParam}>
           Cancel last action
         </button>
