@@ -38,7 +38,8 @@ const RightPanel = ({ childMenu, updateRightPanel }: any): JSX.Element => {
             <span className="mobile-back-btn-level2" onClick={() => updateRightPanel(false)}>
               <Image alt="image" src={pItem.backImage.src} width={9} height={15} />
             </span>
-            {pItem?.title}
+            <span className="mobile-text">{pItem?.title}</span>
+            <span className="desktop-text">All {pItem?.title}</span>
           </h5>
           {firstChildHide && (
             <div className="menu-level2-innerDV">
@@ -57,12 +58,13 @@ const RightPanel = ({ childMenu, updateRightPanel }: any): JSX.Element => {
                   </div>
                 </span>
               </Link>
-              <h6>{pItem.bottomLink.title} </h6>
-              {pItem.bottomLink.children.map((t: any, i: number) => (
-                <div key={i} className="last-level-menu-item">
-                  <Link href={t.url}>{t?.label}</Link>
-                </div>
-              ))}
+              {pItem.bottomLink.title && <h6>{pItem.bottomLink.title} </h6>}
+              {pItem.bottomLink.children.length > 0 &&
+                pItem.bottomLink.children.map((t: any, i: number) => (
+                  <div key={i} className="last-level-menu-item">
+                    <Link href={t.url}>{t?.label}</Link>
+                  </div>
+                ))}
             </div>
           )}
 
