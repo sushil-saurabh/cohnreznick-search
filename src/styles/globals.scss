@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body,
@@ -38,7 +39,7 @@ body {
   font-weight: 400;
   color: #37424a;
   line-height: 1.5;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: 'Source Sans Pro';
   -webkit-font-smoothing: antialiased;
 }
 
@@ -126,7 +127,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-40%, -50%);
   z-index: 2;
   transition: all 0.8s ease-in-out;
 }
@@ -337,6 +338,62 @@ a {
       outline: none;
       transition: all 0.2s;
       cursor: pointer;
+    }
+  }
+}
+
+.cta-primary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 7px 6px 25px;
+  font-size: 16px;
+  color: #112121 !important;
+  font-weight: 600;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 2px 7px 2px 18px;
+  }
+  .button-outer {
+    font-weight: 600;
+  }
+  .icon-button {
+    width: 40px;
+    height: 40px;
+    margin-left: 12px;
+    transition: all 0.8s ease-in-out;
+  }
+  &.primary {
+    border: 1px solid #f57b20;
+    .icon-button {
+      &::after {
+        border-color: #f57b20;
+      }
+      svg path {
+        fill: #f57b20;
+      }
+    }
+  }
+  &:hover {
+    .button-outer2:hover,
+    .button-outer:hover {
+      color: #37424a;
+      span {
+        background-color: transparent;
+      }
+      .icon-button svg path {
+        fill: #fff;
+      }
+      .icon-button:after {
+        transform: scale(0.4);
+        border-radius: 100%;
+        transition: all 0.8s ease-in-out;
+        background-color: #d24700;
+      }
     }
   }
 }

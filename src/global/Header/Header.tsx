@@ -1,9 +1,20 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line max-lines-per-function
+
 import hamMenu from '@/images/ham-menu.svg';
 import sendMail from '@/images/send-mail.svg';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-interface IHeaderProps {}
+import React from 'react';
+
+const LeftPanel = dynamic(() => import('./LeftPanel'), { ssr: false });
+
 const Header = (): JSX.Element => {
+  const [isMegaMenu, setIsMegaMenu] = React.useState(false);
+  const updateMegaMenuState = (value: boolean) => {
+    setIsMegaMenu(value);
+  };
   return (
     <>
       <header className="header">
@@ -18,7 +29,8 @@ const Header = (): JSX.Element => {
                       alt="CohnReznick logo"
                       data-variantitemid="{1F11D892-A58A-4B91-884F-1BA9C3A6FB5D}"
                       data-variantfieldname="Logo"
-                      fill
+                      width={250}
+                      height={51}
                     />
                   </Link>
                 </div>
@@ -45,7 +57,7 @@ const Header = (): JSX.Element => {
                     </svg>
                   </Link>
 
-                  <div className="hamburger-menu">
+                  <div className="hamburger-menu" onClick={() => updateMegaMenuState(true)}>
                     <Image src={hamMenu.src} alt="hamburger" fill />
                   </div>
                 </div>
@@ -53,6 +65,11 @@ const Header = (): JSX.Element => {
             </div>
           </div>
         </div>
+        {isMegaMenu && (
+          <div className="main-nav-fixed-wrap">
+            <LeftPanel updateParentState={updateMegaMenuState} />
+          </div>
+        )}
       </header>
     </>
   );

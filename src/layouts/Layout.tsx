@@ -1,5 +1,5 @@
 import Footer from '@/global/Footer';
-import Header from '@/global/Header';
+import Header from '@/global/Header/Header';
 import React from 'react';
 
 interface ILayoutProps {

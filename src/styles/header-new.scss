@@ -5,43 +5,8 @@
   width: 100%;
   z-index: 11;
   transition: all 400ms ease;
-  background-color: #fff;
   @media (max-width: 991px) {
     padding: 8px 0 10px;
-  }
-
-  .navbar > .container,
-  .navbar > .container-fluid,
-  .navbar > .container-lg,
-  .navbar > .container-md,
-  .navbar > .container-sm,
-  .navbar > .container-xl,
-  .navbar > .container-xxl {
-    display: flex;
-    flex-wrap: inherit;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .navbar-brand {
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    text-decoration: none;
-    white-space: nowrap;
-    // width: 245px;
-    // height: 48px;
-    position: relative;
-    display: inline-block;
-  }
-
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
   }
   .navbar-fixed-top {
     padding: 0;
@@ -76,6 +41,7 @@
           padding: 0;
           img {
             height: 40px;
+            width: auto;
           }
         }
         .navbar-brand {
@@ -102,7 +68,6 @@
           background-color: #f57b20;
           border-radius: 8px;
           transition: all 400ms ease;
-          border: 1px solid transparent;
           @media (max-width: 991px) {
             width: 40px;
             height: 36px;
@@ -188,9 +153,6 @@
           margin-right: 40px;
           cursor: pointer;
           transition: all 0.5s ease-in-out;
-          @media (max-width: 991px) {
-            background-color: transparent;
-          }
           svg {
             position: relative;
             z-index: 1;
@@ -205,9 +167,8 @@
             transition: all 0.5s ease-in-out;
           }
           @media (max-width: 991px) {
-            width: 24px;
-            height: 24px;
-            border: none;
+            width: 32px;
+            height: 32px;
             margin-right: 24px;
             svg {
               width: 26px;
@@ -262,7 +223,8 @@
           top: -26px;
           z-index: 2;
           display: none;
-
+          border-radius: 104.167px;
+          border: 1.5px solid #fff;
           @media only screen and (min-width: 991px) and (max-width: 1199px) {
             width: 360px;
           }
@@ -279,6 +241,34 @@
 
           &.searchshow {
             display: block;
+          }
+          input[type='text'] {
+            width: 100%;
+            background: #001c35;
+            border-radius: 104.167px;
+            padding: 15px 85px 17px 22px;
+            font-size: 16px;
+            color: #fff;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 110%;
+            height: 50px;
+            border: 0;
+            &::-webkit-input-placeholder {
+              opacity: 1;
+              color: #fff;
+            }
+            &::-moz-input-placeholder {
+              opacity: 1;
+              color: #fff;
+            }
+            &::-ms-input-placeholder {
+              opacity: 1;
+              color: #fff;
+            }
+            &:focus {
+              outline: 0;
+            }
           }
           .row {
             margin: 0 !important;
@@ -366,7 +356,7 @@
             background-repeat: no-repeat;
             background-position: center center;
             position: absolute;
-            right: 11px;
+            right: 30px;
             top: 14px;
             z-index: 1;
             cursor: pointer;
@@ -374,7 +364,7 @@
             background-color: transparent;
             @media (max-width: 991px) {
               right: 16px;
-              top: 20px;
+              top: 12px;
             }
           }
 
@@ -385,15 +375,24 @@
             background-repeat: no-repeat;
             background-position: center center;
             position: absolute;
-            right: 47px;
+            right: 50px;
             top: 17px;
             z-index: 1;
             cursor: pointer;
             border: 0;
             background-color: transparent;
+            opacity: 0;
+            transition: 0.3s;
             @media (max-width: 991px) {
-              right: 52px;
-              top: 24px;
+              right: 40px;
+              top: 16px;
+            }
+            &.show {
+              right: 65px;
+              opacity: 1;
+              @media (max-width: 991px) {
+                right: 55px;
+              }
             }
           }
         }
@@ -551,7 +550,7 @@
   height: 100vh;
   padding: 0;
   z-index: 99999;
-  display: none;
+  display: flex;
   background-color: #051f37;
   ul {
     padding-left: 0;
@@ -607,7 +606,6 @@
         }
         img {
           height: 56px;
-          width: auto;
           @media (max-width: 767px) {
             height: 38px;
           }
@@ -658,6 +656,9 @@
         font-size: 28px;
         font-weight: 300;
         line-height: 110%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         @media (max-width: 1024px) {
           font-size: 26px;
           color: #fff;
@@ -783,8 +784,9 @@
   .right-panel-nav-wrap {
     flex: 1;
     padding: 32px 30px 32px 42px;
+    box-sizing: border-box;
     @media (max-width: 991px) {
-      // display: none;
+      display: none;
       padding: 16px;
       position: fixed;
       left: 0;
@@ -792,6 +794,11 @@
       background-color: #00182e;
       width: 100%;
       z-index: 4;
+    }
+    &.open {
+      @media (max-width: 991px) {
+        display: block;
+      }
     }
     .action-close-bar-wrap {
       text-align: right;
@@ -802,6 +809,7 @@
         height: 52px;
         border-radius: 6px;
         background: #23394d;
+        cursor: pointer;
         svg {
           max-width: 100%;
           max-height: 100%;
@@ -820,6 +828,7 @@
     }
     .nav-scroll-area {
       height: calc(100% - 100px);
+      overflow: hidden;
       overflow-y: auto;
       @media (max-width: 991px) {
         display: flex;
@@ -958,6 +967,8 @@
           max-height: 375px;
           border-radius: 16px;
           margin-bottom: 20px;
+          width: auto;
+          height: auto;
         }
         .description-menu {
           font-size: 16px;
