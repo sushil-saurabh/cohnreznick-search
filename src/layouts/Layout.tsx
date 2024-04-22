@@ -1,4 +1,4 @@
-import Footer from '@/global/Footer';
+import Footer from '@/global/Footer/Footer';
 import Header from '@/global/Header/Header';
 import React from 'react';
 

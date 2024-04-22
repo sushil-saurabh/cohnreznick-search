@@ -22,6 +22,8 @@ const SearchInput = (): JSX.Element => {
             placeholder="Type to search..."
             name="query"
             className="searchControl"
+            onClick={(ev) => ev.stopPropagation()}
+            onInput={(ev) => ev.stopPropagation()}
           />
         </div>
         <button type="submit" className="searchBtn" data-mdb-ripple-init>
