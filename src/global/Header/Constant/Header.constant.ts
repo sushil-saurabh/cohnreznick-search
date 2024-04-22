@@ -9,12 +9,13 @@ export const HEADER_LINK = {
       url: 'javascript:void(0)',
       children: [
         {
-          title: 'Industries',
+          title: 'All Industries',
+          mobileTitle: 'Industries',
           backImage: {
             src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
           },
           image: {
-            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_industries.png?h=377&iar=0&w=390&hash=B6923B9B12AE16F72E292AE210F9983B',
+            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_industries.png',
           },
           heading: '',
           description:
@@ -468,25 +469,24 @@ export const HEADER_LINK = {
       url: 'javascript:void(0)',
       children: [
         {
-          title: 'Services',
+          title: 'All Services',
+          mobileTitle: 'Services',
           backImage: {
             src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
           },
           image: {
-            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_industries.png?h=377&iar=0&w=390&hash=B6923B9B12AE16F72E292AE210F9983B',
+            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_services.png',
           },
           heading: '',
-          description: 'Providing clients with expertise and',
+          description:
+            'Providing comprehensive industry-centered advisory, assurance, and tax solutions, our integrated approach helps you improve performance, drive business value, and successfully manage risk.',
           bottomLink: {
-            title: 'Explore The Consumer &',
-            children: [
-              { label: '', url: '' },
-              { label: '', url: '' },
-            ],
+            title: '',
+            children: [],
           },
           link: {
-            label: 'Explore ESG Solutions',
-            url: 'javascript:void(0)',
+            label: 'All Services',
+            url: 'https://www.cohnreznick.com/services',
           },
           childLinks: [
             {
@@ -501,17 +501,15 @@ export const HEADER_LINK = {
                     src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
                   },
                   heading: 'All Services',
-                  description: 'Providing clients with expertise',
+                  description:
+                    'Providing comprehensive industry-centered advisory, assurance, and tax solutions, our integrated approach helps you improve performance, drive business value, and successfully manage risk.',
                   bottomLink: {
-                    title: 'Explore The Consumer &',
-                    children: [
-                      { label: 'Consumer', url: '#' },
-                      { label: 'Hospitality', url: '#' },
-                    ],
+                    title: '',
+                    children: [],
                   },
                   link: {
-                    label: 'Explore ESG Solutions',
-                    url: 'javascript:void(0)',
+                    label: 'All Services',
+                    url: 'https://www.cohnreznick.com/services',
                   },
                 },
               ],
@@ -528,17 +526,32 @@ export const HEADER_LINK = {
                     src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
                   },
                   heading: 'Accounting & Assurance',
-                  description: 'Providing clients with expertise',
+                  description:
+                    'Delivering comprehensive Accounting and Assurance services, we enhance financial reporting confidence, promote transparency, and address stakeholder issues.',
                   bottomLink: {
-                    title: 'Explore The Consumer &',
+                    title: '',
                     children: [
-                      { label: 'Consumer', url: '#' },
-                      { label: 'Hospitality', url: '#' },
+                      {
+                        label: 'Accounting',
+                        url: 'https://www.cohnreznick.com/services/accounting-and-assurance/accounting-services',
+                      },
+                      {
+                        label: 'Attest & Audit',
+                        url: 'https://www.cohnreznick.com/services/accounting-and-assurance/attest-and-audit',
+                      },
+                      {
+                        label: 'Employee Benefit Plans',
+                        url: 'https://www.cohnreznick.com/services/accounting-and-assurance/employee-benefit-plans',
+                      },
+                      {
+                        label: 'Lease Accounting',
+                        url: 'https://www.cohnreznick.com/services/accounting-and-assurance/lease-accounting',
+                      },
                     ],
                   },
                   link: {
-                    label: 'Explore ESG Solutions',
-                    url: 'javascript:void(0)',
+                    label: 'Accounting & Assurance',
+                    url: 'https://www.cohnreznick.com/services/accounting-and-assurance',
                   },
                 },
               ],
@@ -555,17 +568,738 @@ export const HEADER_LINK = {
                     src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
                   },
                   heading: 'Accounting Advisory',
-                  description: 'Providing clients with expertise',
+                  description:
+                    "Our Accounting Advisory team helps businesses navigate the challenging accounting environment with astute practices that focus on achieving your organization's goals.",
                   bottomLink: {
-                    title: 'Explore The Consumer &',
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Accounting Advisory',
+                    url: 'https://www.cohnreznick.com/services/advisory/accounting-advisory',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Business Performance',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Business Performance',
+                  description:
+                    'From focused Improvements for a specific business function to a full transformation that redefines your operations, our advisors can help you achieve game-changing results.',
+                  bottomLink: {
+                    title: '',
                     children: [
-                      { label: 'Consumer', url: '#' },
-                      { label: 'Hospitality', url: '#' },
+                      {
+                        label: 'CFO Advisory',
+                        url: 'https://www.cohnreznick.com/services/advisory/business-performance/cfo-advisory',
+                      },
+                      {
+                        label: 'Managed Services & Outsourcing',
+                        url: 'https://www.cohnreznick.com/services/advisory/business-performance/managed-services-outsourced-accounting',
+                      },
+                      {
+                        label: 'Performance Improvement',
+                        url: 'https://www.cohnreznick.com/services/advisory/business-performance/performance-improvement',
+                      },
+                      {
+                        label: 'Restructuring',
+                        url: 'https://www.cohnreznick.com/services/advisory/business-performance/restructuring',
+                      },
                     ],
                   },
                   link: {
-                    label: 'Explore ESG Solutions',
-                    url: 'javascript:void(0)',
+                    label: 'Business Performance',
+                    url: 'https://www.cohnreznick.com/services/advisory/business-performance',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Digital',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Digital',
+                  description:
+                    'With deeply skilled professionals and best-in-class technologies, CohnReznick’s Digital team helps organizations identify and mobilize the people, processes, technology, and strategy needed to best manage their information, support their long-term goals, and gain competitive advantage.',
+                  bottomLink: {
+                    title: '',
+                    children: [
+                      {
+                        label: 'Cloud Applications',
+                        url: 'https://www.cohnreznick.com/services/advisory/digital/cloud-applications',
+                      },
+                      {
+                        label: 'Digital Strategy',
+                        url: 'https://www.cohnreznick.com/services/advisory/digital/digital-strategy',
+                      },
+                      {
+                        label: 'Digital Transformation',
+                        url: 'https://www.cohnreznick.com/services/advisory/digital/digital-transformation',
+                      },
+                      {
+                        label: 'Enterprise Resource Planning',
+                        url: 'https://www.cohnreznick.com/services/advisory/digital/enterprise-resource-planning',
+                      },
+                    ],
+                  },
+                  link: {
+                    label: 'Digital',
+                    url: 'https://www.cohnreznick.com/services/advisory/digital',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Risk',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Risk',
+                  description:
+                    'Leveraging top-tier risk management, industry expertise, and innovative cybersecurity technologies, we evaluate risks, analyze threats, and create cost-effective security and governance procedures.',
+                  bottomLink: {
+                    title: '',
+                    children: [
+                      {
+                        label: 'Cybersecurity',
+                        url: 'https://www.cohnreznick.com/services/advisory/risk/cybersecurity',
+                      },
+                      {
+                        label: 'Enterprise Risk Management',
+                        url: 'https://www.cohnreznick.com/services/advisory/risk/enterprise-risk-management',
+                      },
+                      {
+                        label: 'Internal Audit',
+                        url: 'https://www.cohnreznick.com/services/advisory/risk/internal-audit',
+                      },
+                      { label: 'Privacy', url: 'https://www.cohnreznick.com/services/advisory/risk/privacy' },
+                      {
+                        label: 'Technology Risk',
+                        url: 'https://www.cohnreznick.com/services/advisory/risk/technology-risk',
+                      },
+                    ],
+                  },
+                  link: {
+                    label: 'Risk',
+                    url: 'https://www.cohnreznick.com/services/advisory/risk',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Sustainability Advisory',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Sustainability Advisory',
+                  description:
+                    'Helping our clients build more sustainable, resilient businesses Is front and center in what we do. Our methodology considers the environmental, social, and governance issues that matter to your stakeholders.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Sustainability Advisory',
+                    url: 'https://www.cohnreznick.com/services/advisory/sustainability-advisory',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Tax',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Tax',
+                  description:
+                    'By implementing proactive strategies driven by a team with wide-ranging tax knowledge, we can help you reduce tax risk and maximize eligible tax reduction benefits.',
+                  bottomLink: {
+                    title: '',
+                    children: [
+                      { label: 'Federal Tax', url: 'https://www.cohnreznick.com/services/tax/federal-tax' },
+                      { label: 'International Tax', url: 'https://www.cohnreznick.com/services/tax/international-tax' },
+                      {
+                        label: 'Exempt Organizations Tax Services',
+                        url: 'https://www.cohnreznick.com/services/tax/nonprofit-tax',
+                      },
+                      { label: 'Private Clients', url: 'https://www.cohnreznick.com/services/tax/private-clients' },
+                      {
+                        label: 'State & Local Tax',
+                        url: 'https://www.cohnreznick.com/services/tax/state-and-local-tax',
+                      },
+                      { label: 'Tax Credits', url: 'https://www.cohnreznick.com/services/tax/tax-credits' },
+                      { label: 'Trusts & Estates', url: 'https://www.cohnreznick.com/services/tax/trusts-and-estates' },
+                    ],
+                  },
+                  link: {
+                    label: 'Tax',
+                    url: 'https://www.cohnreznick.com/services/tax',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Transactions',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Transactions',
+                  description:
+                    "Many businesses look to accelerate growth through transactions like mergers, acquisitions, or sales. CohnReznick's skilled advisors offer comprehensive support throughout the transaction lifecycle.",
+                  bottomLink: {
+                    title: '',
+                    children: [
+                      {
+                        label: 'Due Diligence',
+                        url: 'https://www.cohnreznick.com/services/advisory/transactions/due-diligence',
+                      },
+                      {
+                        label: 'Post-Merger Integration',
+                        url: 'https://www.cohnreznick.com/services/advisory/transactions/post-transaction-integration',
+                      },
+                      {
+                        label: 'Project Finance & Consulting',
+                        url: 'https://www.cohnreznick.com/services/advisory/transactions/project-finance-and-consulting',
+                      },
+                      {
+                        label: 'Valuation',
+                        url: 'https://www.cohnreznick.com/services/advisory/transactions/valuation',
+                      },
+                      {
+                        label: 'Value Creation',
+                        url: 'https://www.cohnreznick.com/services/advisory/transactions/value-creation',
+                      },
+                    ],
+                  },
+                  link: {
+                    label: 'Transactions',
+                    url: 'https://www.cohnreznick.com/services/advisory/transactions',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Insights',
+      url: 'javascript:void(0)',
+      children: [
+        {
+          title: 'All Insights',
+          mobileTitle: 'Insights',
+          backImage: {
+            src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+          },
+          image: {
+            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_insights.png',
+          },
+          heading: '',
+          description:
+            'Sharing perspectives from our subject matter experts on the trends and Issues that matter to our clients extends our value proposition. Explore videos, articles, and other resources designed for today’s business leaders.',
+          bottomLink: {
+            title: '',
+            children: [],
+          },
+          link: {
+            label: 'All Insights',
+            url: 'https://www.cohnreznick.com/insights#sort=%40insightpublisheddate%20descending',
+          },
+          childLinks: [
+            {
+              label: 'All Insights',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'All Insights',
+                  description:
+                    'Sharing perspectives from our subject matter experts on the trends and Issues that matter to our clients extends our value proposition. Explore videos, articles, and other resources designed for today’s business leaders.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'All Insights',
+                    url: 'https://www.cohnreznick.com/insights#sort=%40insightpublisheddate%20descending',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Topics',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Topics',
+                  description:
+                    'Explore the issues and topics across various sectors that industry leaders are talking about.',
+                  bottomLink: {
+                    title: '',
+                    children: [
+                      {
+                        label: 'Affordable Housing Credit Study',
+                        url: 'https://www.cohnreznick.com/insights/2023-affordable-housing-credit-study',
+                      },
+                      {
+                        label: 'CohnReznick & Major League Baseball®',
+                        url: 'https://www.cohnreznick.com/insights/cohnreznick-and-major-league-baseball',
+                      },
+                      { label: 'The C-Suite Dashboard', url: 'https://www.cohnreznick.com/insights/c-suite-dashboard' },
+                      {
+                        label: 'Sustainability Gamechanger Awards',
+                        url: 'https://www.cohnreznick.com/insights/sustainability-gamechanger-awards',
+                      },
+                      {
+                        label: 'Infrastructure Resource Center',
+                        url: 'https://www.cohnreznick.com/insights/infrastructure',
+                      },
+                      {
+                        label: 'Real Estate Movement',
+                        url: 'https://www.cohnreznick.com/insights/real-estate-movement',
+                      },
+                    ],
+                  },
+                  link: {
+                    label: '',
+                    url: '',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Events',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Events',
+                  description:
+                    'Connect with business leaders on topics that impact your industry. Join our live events, webinars, and discussion forums. ',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Events',
+                    url: 'https://www.cohnreznick.com/events#sort=%40eventdate%20descending',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Subscribe',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Subscribe',
+                  description:
+                    'Subscribe to receive CohnReznick insights and event invitations on topics that matter for your business and role.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Subscribe',
+                    url: 'https://www.cohnreznick.com/subscription',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'About us',
+      url: 'javascript:void(0)',
+      children: [
+        {
+          title: 'About CohnReznick',
+          mobileTitle: 'About us',
+          backImage: {
+            src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+          },
+          image: {
+            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_about.png',
+          },
+          heading: 'About us',
+          description:
+            'Driven by purpose. Committed to corporate responsibility. Learn about CohnReznick and the ways we can deliver value to your business.',
+          bottomLink: {
+            title: '',
+            children: [],
+          },
+          link: {
+            label: 'Learn More About us',
+            url: 'https://www.cohnreznick.com/about',
+          },
+          childLinks: [
+            {
+              label: 'About CohnReznick',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'About us',
+                  mobileHeading: 'About CohnReznick',
+                  description:
+                    'Driven by purpose. Committed to corporate responsibility. Learn about CohnReznick and the ways we can deliver value to your business.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Learn More About us',
+                    url: 'https://www.cohnreznick.com/about',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Corporate Responsibility',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Corporate Responsibility',
+                  description:
+                    'CohnReznick recognizes that being a trusted employer and business advisor is paramount. By operating with a heightened sense of responsibility and advancing sustainability Initiatives, we believe our actions impact not only key stakeholders but society as a whole.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Corporate Responsibility',
+                    url: 'https://www.cohnreznick.com/about/corporate-social-responsibility',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'News',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'News',
+                  description:
+                    'Explore our latest media commentary, press releases, industry awards, and more in the CohnReznick news hub.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'News',
+                    url: 'https://www.cohnreznick.com/news',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Offices',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Offices',
+                  description:
+                    'Find out where we operate from various locations across the United States and around the world, with offices strategically located in major U.S. business centers.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Offices',
+                    url: 'https://www.cohnreznick.com/offices',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'People',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'People',
+                  description:
+                    "Learn how the convergence of backgrounds, knowledge, and geographic perspectives of our team members provides the diversity of thought and experience critical to our clients' successes.",
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'People',
+                    url: 'https://www.cohnreznick.com/people',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Careers',
+      url: 'javascript:void(0)',
+      children: [
+        {
+          title: 'Careers at CohnReznick',
+          mobileTitle: 'Careers',
+          backImage: {
+            src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+          },
+          image: {
+            src: 'https://www.cohnreznick.com/-/media/home-page-redesign/img_nav_careers.png',
+          },
+          heading: 'Career Opportunities',
+          description:
+            'See how far your talent can take you. Join our growing team of advisory, assurance, and tax professionals.',
+          bottomLink: {
+            title: '',
+            children: [],
+          },
+          link: {
+            label: 'Career Opportunities',
+            url: 'https://www.cohnreznick.com/careers',
+          },
+          childLinks: [
+            {
+              label: 'Careers at CohnReznick',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Career Opportunities ',
+                  mobileHeading: 'Careers at CohnReznick',
+                  description:
+                    'See how far your talent can take you. Join our growing team of advisory, assurance, and tax professionals.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Explore Career Opportunities',
+                    url: 'https://www.cohnreznick.com/careers',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Experienced Career Opportunities',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Experienced Career Opportunities',
+                  description:
+                    'Seek opportunities to contribute, build connections, and enhance your skills. Explore current job listings that align with your seasoned skills and interests.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Experienced Career Opportunities',
+                    url: 'https://www.cohnreznick.com/careers/experienced-professional-opportunities',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Early Career Opportunities',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Careers at CohnReznick',
+                  description:
+                    'See how far your talent can take you. Join our growing team of advisory, assurance, and tax professionals.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Early Career Opportunities',
+                    url: 'https://www.cohnreznick.com/careers/early-career-opportunities?',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Internships',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Internships',
+                  description:
+                    'Get a glimpse of the real world and gain valuable experience to help envision a future in professional services through our internship opportunities at CohnReznick.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Internships',
+                    url: 'https://www.cohnreznick.com/careers/cohnreznick-internships',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Life at CohnReznick',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Life at CohnReznick',
+                  description:
+                    'See what defines the CohnReznick experience -an unlimited career trajectory, collaboration with colleagues and clients, and harmony between your work life and personal life.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Life at CohnReznick',
+                    url: 'https://www.cohnreznick.com/careers/life-at-cohnreznick',
+                  },
+                },
+              ],
+            },
+            {
+              label: 'Why CohnReznick?',
+              url: 'javascript:void(0)',
+              childLinkChildren: [
+                {
+                  image: {
+                    src: '',
+                  },
+                  backImage: {
+                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
+                  },
+                  heading: 'Why CohnReznick?',
+                  description:
+                    'As a certified Great Place to Work and one of Newsweek’s Most Loved Workplaces, learn how you can find your “why” at CohnReznick.',
+                  bottomLink: {
+                    title: '',
+                    children: [],
+                  },
+                  link: {
+                    label: 'Why CohnReznick?',
+                    url: 'https://www.cohnreznick.com/careers/why-cohnreznick',
                   },
                 },
               ],
@@ -578,13 +1312,13 @@ export const HEADER_LINK = {
   loginLink: [
     {
       label: 'Contact Us',
-      index: '1',
-      url: 'javascript:void(0)',
+      url: 'https://www.cohnreznick.com/contact-us',
+      target: '',
     },
     {
-      label: 'CLient Portal',
-      index: '2',
-      url: 'javascript:void(0)',
+      label: 'Client Portal',
+      url: 'https://cohnreznick.sharepoint.com/sites/ClientPortal',
+      target: '_blank',
     },
   ],
 };

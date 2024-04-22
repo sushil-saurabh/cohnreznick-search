@@ -38,12 +38,13 @@ const RightPanel = ({ childMenu, updateRightPanel }: any): JSX.Element => {
             <span className="mobile-back-btn-level2" onClick={() => updateRightPanel(false)}>
               <Image alt="image" src={pItem.backImage.src} width={9} height={15} />
             </span>
-            <span className="mobile-text">{pItem?.title}</span>
-            <span className="desktop-text">All {pItem?.title}</span>
+            <span className="mobile-text">{pItem?.mobileTitle}</span>
+            <span className="desktop-text">{pItem?.title}</span>
           </h5>
           {firstChildHide && (
             <div className="menu-level2-innerDV">
               <Image alt="image" src={pItem.image.src} width={390} height={377} />
+              {pItem.heading && <h5 className="headline-menu">{pItem.heading}</h5>}
               <p className="description-menu">{pItem.description}</p>
               <Link className="cta-primary-btn" href={`${pItem.link.url}`}>
                 {pItem.link?.label}

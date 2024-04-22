@@ -202,7 +202,7 @@
             top: 14px;
             right: 105%;
             font-size: 16px;
-            color: #fff;
+            color: #001c35;
             @media (max-width: 767px) {
               left: -12px;
               right: auto;
@@ -225,6 +225,7 @@
           display: none;
           border-radius: 104.167px;
           border: 1.5px solid #fff;
+          background: #001c35;
           @media only screen and (min-width: 991px) and (max-width: 1199px) {
             width: 360px;
           }
@@ -242,17 +243,30 @@
           &.searchshow {
             display: block;
           }
-          input[type='text'] {
+          .input-group {
+            margin-bottom: 0;
+            .searchBtn {
+              height: 52px;
+              background: #001c35;
+              border: 0;
+              border-radius: 104.167px;
+              svg {
+                color: #fff;
+              }
+            }
+          }
+          input[type='text'],
+          input[type='search'] {
             width: 100%;
             background: #001c35;
             border-radius: 104.167px;
-            padding: 15px 85px 17px 22px;
+            padding: 15px 40px 17px 22px;
             font-size: 16px;
             color: #fff;
             font-style: normal;
             font-weight: 400;
             line-height: 110%;
-            height: 50px;
+            height: 52px;
             border: 0;
             &::-webkit-input-placeholder {
               opacity: 1;
@@ -268,6 +282,24 @@
             }
             &:focus {
               outline: 0;
+            }
+            &::-webkit-search-cancel-button {
+              position: relative;
+              right: -30px;
+              -webkit-appearance: none;
+              height: 16px;
+              width: 16px;
+              background-image: url(../images/icon-Close-white.svg);
+              cursor: pointer;
+            }
+            &::-moz-search-cancel-button {
+              position: relative;
+              right: 20px;
+              appearance: none;
+              height: 16px;
+              width: 16px;
+              background-image: url(../images/icon-Close-white.svg);
+              cursor: pointer;
             }
           }
           .row {
@@ -484,7 +516,6 @@
             }
           }
         }
-
         .header-icon-actions {
           width: 41px;
           height: 41px;
@@ -1132,7 +1163,7 @@
             margin-left: 0;
             padding-right: 0;
             background-color: #00182e;
-            height: 100%;
+            height: 102%;
             // display: none;
           }
           img {

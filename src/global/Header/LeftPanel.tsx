@@ -60,7 +60,7 @@ const LeftPanel = ({ updateParentState }: any): JSX.Element => {
                   updateMobileSubMenuState(true);
                 }}
               >
-                <Link title={`${t?.label}`} href={`${t?.url}`} onClick={(ev) => ev.preventDefault()}>
+                <Link title={`${t?.label}`} href={`${t?.url}`} target={t?.target} onClick={(ev) => ev.preventDefault()}>
                   {t?.label}
                 </Link>
               </li>
@@ -70,7 +70,13 @@ const LeftPanel = ({ updateParentState }: any): JSX.Element => {
         <ul className="login-menu-options">
           {HEADER_LINK.loginLink.map((t: any, i: number) => (
             <li key={i}>
-              <Link title={`${t.label}`} href={`${t.url}`} className="navbar-brand">
+              <Link
+                title={`${t.label}`}
+                href={`${t.url}`}
+                rel="noopener noreferrer"
+                target={`${t.target}`}
+                className="navbar-brand"
+              >
                 {t.label}
               </Link>
             </li>
