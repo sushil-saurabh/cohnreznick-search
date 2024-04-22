@@ -69,6 +69,7 @@ export interface ISearchResultFields {
     page: number;
     onPageNumberChange: (e: any) => void;
     onResultsPerPageChange: (e: any) => void;
+    onRemoveFilter: (e: any) => void;
     defaultItemsPerPage: number;
     keyphraseHandler: (event: ChangeEvent<HTMLInputElement>) => void;
     itemsPerPage: number;

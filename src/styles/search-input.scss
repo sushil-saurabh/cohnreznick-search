@@ -53,3 +53,49 @@
     }
   }
 }
+.fiterSelected {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    color: #323e48;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: initial;
+    .type {
+      margin-right: 5px;
+    }
+    .singleitem {
+      padding: 2px 5px;
+      border: 1px solid rgba(162, 170, 176, 0.31);
+      margin: 0 0 5px 5px;
+      display: inline-flex;
+      transition: all 0.3s ease-in-out;
+      margin: 0 5px 5px 0;
+      color: #000;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      line-height: 1.385em;
+      cursor: pointer;
+      button {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        margin-left: 2px;
+        svg {
+          width: 9px;
+          height: 9px;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+      &:hover {
+        color: #007cbf;
+        svg {
+          color: #ff0000;
+        }
+      }
+    }
+  }
+}
