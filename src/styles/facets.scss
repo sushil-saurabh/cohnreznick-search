@@ -3,6 +3,13 @@
   .facetHeaderTitle {
     margin: 0;
   }
+  &[data-state='open'] {
+    .facetsbtns {
+      &::after {
+        transform: rotate(0deg);
+      }
+    }
+  }
   .facetsbtns {
     font-size: 18px;
     letter-spacing: 0.8px;
@@ -13,12 +20,21 @@
     color: #323e48;
     cursor: pointer;
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 15px 10px 20px;
     text-align: left;
-    background-image: url(../images/updownarrow.svg);
-    background-repeat: no-repeat;
-    background-position: 95% center;
-    background-size: 12px;
+    position: relative;
+    &::after {
+      content: '';
+      width: 15px;
+      height: 20px;
+      background-image: url(../images/updownarrow.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 12px;
+      display: inline-block;
+      float: right;
+      transform: rotate(180deg);
+    }
   }
 }
 

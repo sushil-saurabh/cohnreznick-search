@@ -24,10 +24,13 @@ const SearchFilter = ({ fields }: ISearchFilterProps): JSX.Element => {
             of <span className="highlight">{totalPages}</span>
           </span> */}
 
-          <b>
-            Showing {itemsPerPage * (page - 1) + 1} - {itemsPerPage * (page - 1) + articles.length} of {totalItems}{' '}
-            {q && `for ${q}`}
-          </b>
+          <span className="showing">
+            Showing
+            <b>
+              {itemsPerPage * (page - 1) + 1} - {itemsPerPage * (page - 1) + articles.length}
+            </b>
+            of <b>{totalItems}</b> <b>{q && `for ${q}`}</b>
+          </span>
         </div>
         <SortSelect.Root defaultValue={sortChoices[selectedSortIndex]?.name} onValueChange={onSortChange}>
           <SortSelect.Trigger>
@@ -37,9 +40,9 @@ const SearchFilter = ({ fields }: ISearchFilterProps): JSX.Element => {
             <SortSelect.Icon />
           </SortSelect.Trigger>
           <SortSelect.Content>
-            <SortSelect.Viewport>
+            <SortSelect.Viewport className="select">
               {sortChoices.map((option) => (
-                <SortSelect.Option value={option} key={`${option.label}}`}>
+                <SortSelect.Option value={option} key={`${option.label}}`} className="selectItem">
                   <SortSelect.OptionText>{option.label}</SortSelect.OptionText>
                 </SortSelect.Option>
               ))}

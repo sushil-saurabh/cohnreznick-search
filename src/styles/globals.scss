@@ -312,6 +312,7 @@ a {
   flex-basis: auto;
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
   &.none {
     .noResultOuter {
       display: none;
@@ -328,6 +329,22 @@ a {
       padding-left: 0;
     }
   }
+  &.smallScreen {
+    .facetSection {
+      position: absolute;
+      top: 123px;
+      left: 0;
+      width: 100%;
+      z-index: 99;
+      background-color: #fff;
+      max-height: 27%;
+      overflow-y: auto;
+    }
+    .filterButtonMobile {
+      z-index: 99;
+      position: relative;
+    }
+  }
   @media (max-width: 991px) {
     flex-direction: column;
   }
@@ -336,10 +353,13 @@ a {
     max-width: 28.01019%;
     border-right: 1px solid rgba(162, 170, 176, 0.31);
     padding: 5px 30px 5px 0;
+    height: max-content;
 
     @media (max-width: 991px) {
       padding: 5px;
       max-width: 100%;
+      border-right: 0;
+      display: none;
     }
   }
   .resultSection {
@@ -348,7 +368,7 @@ a {
     width: 100%;
     max-width: 100%;
     @media (max-width: 991px) {
-      padding: 10px;
+      padding: 0px;
     }
   }
 }
@@ -360,7 +380,7 @@ a {
   white-space: normal;
   list-style: none;
   li {
-    padding: 5px 20px;
+    padding: 5px 15px 5px 20px;
     font-size: 14px;
     letter-spacing: 0.8px;
     font-weight: 700;
@@ -455,5 +475,57 @@ a {
         background-color: #d24700;
       }
     }
+  }
+}
+
+.filterButtonMobile {
+  width: 100%;
+  display: none;
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 0 7px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.09px;
+  vertical-align: middle;
+  white-space: normal;
+  color: #1d4f76;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #007cbf;
+  padding: 12px 15px;
+  color: #000;
+  font-size: 14px;
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+  margin: 20px 0 0 0;
+  &:hover {
+    background: #007cbf;
+    color: #fff;
+  }
+  @media (max-width: 991px) {
+    display: inline-block;
+  }
+}
+
+.mobilebg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  z-index: 99;
+  display: none;
+}
+body.facetsOpen {
+  overflow: hidden;
+  @media (max-width: 991px) {
+    .facetSection {
+      display: block;
+    }
+  }
+  .mobilebg {
+    display: block;
   }
 }

@@ -99,3 +99,47 @@
     }
   }
 }
+
+.filterOuter {
+  position: relative;
+  align-items: center;
+  .showing {
+    font-size: 14px;
+    color: #323e48;
+  }
+  button {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 5px;
+    min-width: 110px;
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    border: thin solid #919fb1;
+    flex-direction: row;
+    background-color: transparent;
+    align-items: center;
+    cursor: pointer;
+  }
+  .select {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    right: 0 !important;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #fff;
+    border: thin solid #919fb1;
+    width: 110px !important;
+    padding: 5px !important;
+    display: block !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    .selectItem {
+      padding: 5px 0;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
