@@ -1,9 +1,7 @@
 import type { EntityModel } from '@sitecore-search/react';
-import PropTypes from 'prop-types';
 import type { IHighlights } from './highlights.type';
 
 export const getDescription = (article: EntityModel, key: string) => {
-  console.log(article, key);
   if (article.highlight?.[key] && (article.highlight[key] || []).length > 0) {
     return (article.highlight[key] || []).join(' ');
   }
