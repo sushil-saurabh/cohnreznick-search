@@ -12,7 +12,7 @@ export default function Search() {
         key={q as string}
         rfkId="rfkid_7"
         defaultKeyphrase={q as string}
-        defaultSortType={SEARCH_SORT_BY_FILTER.DESC}
+        defaultSortType={SEARCH_SORT_BY_FILTER.RELEVENCE}
         defaultPage={1}
         defaultItemsPerPage={10}
         componentType="search"

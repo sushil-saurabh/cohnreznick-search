@@ -5,7 +5,6 @@ import React from 'react';
 import Pagination from '../../components/widgets/Pagination/pagination.component';
 import type { GRID_TYPE } from '../widgets/SearchContent/searchContent.type';
 import SearchInput from '../widgets/SearchInput/searchInput.component';
-import styles from './searchRenderer.module.scss';
 import type { ISearchRendererProps } from './searchRenderer.type';
 import NoResult from '../widgets/NoResult/noResult.component';
 const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
