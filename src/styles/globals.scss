@@ -425,6 +425,9 @@ a {
         }
       }
     }
+    &.hide {
+      display: none;
+    }
   }
 }
 

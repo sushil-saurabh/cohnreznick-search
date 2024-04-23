@@ -7,7 +7,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
   return (
     <div className={styles.facetsOuter}>
       <SearchResultsAccordionFacets
-        defaultFacetTypesExpandedList={[]}
+        defaultFacetTypesExpandedList={facets.map((t) => t.name)}
         onFacetTypesExpandedListChange={() => {}}
         onFacetValueClick={(e) => {
           console.log(e);
@@ -22,7 +22,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
             <AccordionFacets.Content className="facetsContentOuter">
               <AccordionFacets.ValueList className="facetsList facetValues">
                 {f.value.map((v, index) => (
-                  <AccordionFacets.Item {...{ index, facetValueId: v.id }} key={v.id}>
+                  <AccordionFacets.Item {...{ index, facetValueId: v.id }} key={v.id} className={v.text ? '' : 'hide'}>
                     <AccordionFacets.ItemCheckbox>
                       <AccordionFacets.ItemCheckboxIndicator>
                         <CheckIcon />
