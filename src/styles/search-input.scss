@@ -120,6 +120,10 @@
     background-color: transparent;
     align-items: center;
     cursor: pointer;
+    &:focus {
+      outline: 0;
+      box-shadow: none;
+    }
   }
   .select {
     position: relative !important;
@@ -140,6 +144,10 @@
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
+      &:focus {
+        outline: 0;
+        box-shadow: none;
+      }
     }
   }
 }

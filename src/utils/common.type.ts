@@ -41,9 +41,10 @@ export interface IApplicationSearchProps {
 }
 export type HighlightTag = 'b' | 'pre' | 'i';
 export enum SEARCH_SORT_BY_FILTER {
-  RELEVENCE = 'relevence',
+  RELEVENCE = 'relevance',
   ASC = 'asc',
   DESC = 'desc',
+  PUBLISH_DATE = 'publishdate',
 }
 export enum SEARCH_COMP_TYPE {
   SEARCH = 'search',
