@@ -9,9 +9,11 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
         {fields.map((a) => (
           <div key={`${a.id}@${a.source_id}`}>
             <Link title={a.name} href={`${a.event_redirect_url !== null ? a.event_redirect_url : a.url} `}>
-              <div className="Title">{a.title}</div>
-              <div className={`publishDate ${a.publish_date !== null || a.author_name !== null ? '' : 'hide'} `}>
-                PublishedDate : {a.publish_date}{' '}
+              <div className="Title">{a.title ? a.title : a.name}</div>
+              <div
+                className={`publishDate ${a.publish_date || a.author_name ? '' : 'hide'} ${a.content_type === 'Event' ? 'hide' : ''} `}
+              >
+                PublishedDate : {a.publish_date}
                 <span>
                   {a.author_name ? '|' : ''} {a.author_name}
                 </span>
