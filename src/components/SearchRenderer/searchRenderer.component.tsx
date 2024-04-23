@@ -15,6 +15,11 @@ const Skeleton = dynamic(import('react-loading-skeleton'));
 const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
   const [windowWidth, setWindowWidth] = React.useState(0);
+  const [isBodyClassToggled, setIsBodyClassToggled] = React.useState(false);
+  const toggleBodyClass = () => {
+    setIsBodyClassToggled(!isBodyClassToggled);
+    document.getElementById('#filterButtonMobile')?.classList.remove('facetsOpen');
+  };
   React.useEffect(() => {
     function handleResize() {
       setWindowWidth(window.innerWidth);
@@ -25,7 +30,6 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  const [isBodyClassToggled, setIsBodyClassToggled] = React.useState(false);
   React.useEffect(() => {
     if (isBodyClassToggled) {
       document.body.classList.add('facetsOpen');
@@ -36,10 +40,6 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
       document.body.classList.remove('facetsOpen');
     };
   }, [isBodyClassToggled]);
-  const toggleBodyClass = () => {
-    setIsBodyClassToggled(!isBodyClassToggled);
-    document.getElementById('#filterButtonMobile')?.classList.remove('facetsOpen');
-  };
 
   const {
     onSortChange,

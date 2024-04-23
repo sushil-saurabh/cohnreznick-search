@@ -25,10 +25,10 @@ const SearchFilter = ({ fields }: ISearchFilterProps): JSX.Element => {
           </span> */}
 
           <span className="showing">
-            Showing{' '}
+            Showing
             <b>
               {itemsPerPage * (page - 1) + 1} - {itemsPerPage * (page - 1) + articles.length}
-            </b>{' '}
+            </b>
             of <b>{totalItems}</b> <b>{q && `for ${q}`}</b>
           </span>
         </div>
