@@ -6,8 +6,8 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
       <div className="searchArticlesListView">
         {fields.map((a) => (
           <div key={`${a.id}@${a.source_id}`}>
-            <Link title={a.name} href={`${a.url}`}>
-              <div className="Title">{a.name}</div>
+            <Link title={a.name} href={`${a.event_redirect_url !== null ? a.event_redirect_url : a.url} `}>
+              <div className="Title">{a.title}</div>
               <div className={`publishDate ${a.publish_date !== null && a.author_name !== null ? '' : 'hide'} `}>
                 PublishedDate : {a.publish_date} <span>| {a.author_name}</span>
               </div>

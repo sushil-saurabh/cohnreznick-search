@@ -14,6 +14,35 @@ const Facets = dynamic(import('../widgets/Facets/facets.component'));
 const Skeleton = dynamic(import('react-loading-skeleton'));
 const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
+  const [windowWidth, setWindowWidth] = React.useState(0);
+  React.useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+    setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  const [isBodyClassToggled, setIsBodyClassToggled] = React.useState(false);
+  React.useEffect(() => {
+    // Add or remove the class based on the state
+    if (isBodyClassToggled) {
+      document.body.classList.add('facetsOpen');
+    } else {
+      document.body.classList.remove('facetsOpen');
+    }
+
+    // Cleanup function to remove the class when component unmounts
+    return () => {
+      document.body.classList.remove('facetsOpen');
+    };
+  }, [isBodyClassToggled]);
+  const toggleBodyClass = () => {
+    setIsBodyClassToggled(!isBodyClassToggled);
+    document.getElementById('#filterButtonMobile')?.classList.remove('facetsOpen');
+  };
 
   const {
     onSortChange,
@@ -37,7 +66,10 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   return (
     <div className="main-container">
       <h1 className="content-header__title">Search Results</h1>
-      <div className={`coveoMainSection ${isFetching || totalItems ? '' : 'full'}`}>
+      <div
+        className={`coveoMainSection ${isFetching || totalItems ? '' : 'full'} ${windowWidth > 991 ? '' : 'smallScreen'}`}
+      >
+        <div className="mobilebg" id="filterButtonMobile" onClick={toggleBodyClass} />
         <div className="facetSection">
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
@@ -47,7 +79,9 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
           </div>
           {isFetching || totalItems ? (
             <>
-              {/* will use latter <button className="filterButtonMobile">Filter</button> */}
+              <button className="filterButtonMobile" onClick={toggleBodyClass}>
+                Filters
+              </button>
               <ul className="fiterSelected">
                 {selectedFacetsFromApi.map((selectedFacet: any) => (
                   <li key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}>
