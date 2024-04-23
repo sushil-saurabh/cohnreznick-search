@@ -16,14 +16,12 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
                   {a.author_name ? '|' : ''} {a.author_name}
                 </span>
               </div>
-              {/* <div className="Subtitle" dangerouslySetInnerHTML={{ __html: a.highlight?.description }} /> */}
               <HighlightComponent
                 text={getDescription(a, 'description')}
                 preSeparator={HIGHLIGHT_DATA.pre}
                 postSeparator={HIGHLIGHT_DATA.post}
                 highlightElement={HIGHLIGHT_DATA.highlightTag}
               />
-
               <div className="Type">
                 <span>{a.content_type ? a.content_type : ''}</span>
                 {a.selected_industries.map((itm: string, index: number) => (
@@ -32,9 +30,6 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
                 {a.selected_services.map((itm: string, index: number) => (
                   <span key={index}>{itm}</span>
                 ))}
-                {/* {a.selected_topics.map((itm: string, index: number) => (
-                  <span key={index}>{itm}</span>
-                ))} */}
               </div>
             </Link>
           </div>
