@@ -289,7 +289,7 @@
               -webkit-appearance: none;
               height: 16px;
               width: 16px;
-              background-image: url(../images/icon-Close-white.svg);
+              background-image: url('../images/close-white.svg');
               cursor: pointer;
             }
             &::-moz-search-cancel-button {
@@ -298,7 +298,7 @@
               appearance: none;
               height: 16px;
               width: 16px;
-              background-image: url(../images/icon-Close-white.svg);
+              background-image: url('../images/close-white.svg');
               cursor: pointer;
             }
           }
