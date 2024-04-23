@@ -27,14 +27,11 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   }, []);
   const [isBodyClassToggled, setIsBodyClassToggled] = React.useState(false);
   React.useEffect(() => {
-    // Add or remove the class based on the state
     if (isBodyClassToggled) {
       document.body.classList.add('facetsOpen');
     } else {
       document.body.classList.remove('facetsOpen');
     }
-
-    // Cleanup function to remove the class when component unmounts
     return () => {
       document.body.classList.remove('facetsOpen');
     };
