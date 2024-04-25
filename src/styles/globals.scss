@@ -72,6 +72,10 @@ body {
   max-width: 1512px;
   margin-inline: auto;
 
+  @media (max-width: 1600px) {
+    padding: 0 64px;
+  }
+
   @media (max-width: 1440px) {
     padding: 0 32px;
   }
@@ -341,13 +345,24 @@ a {
       width: 100%;
       z-index: 99;
       background-color: #fff;
-      max-height: 27%;
+      max-height: 600px;
       overflow-y: auto;
+      box-shadow: 0 7px 15px rgba(0, 0, 0, 0.25);
+      border-radius: 0 0 0 2px;
     }
     .filterButtonMobile {
       z-index: 99;
       position: relative;
       margin-bottom: 10px;
+    }
+  }
+  &.events,
+  &.insights {
+    .facetSection {
+      top: 64px;
+    }
+    .filterOuter {
+      border-top: 1px solid rgba(162, 170, 176, 0.31);
     }
   }
   @media (max-width: 991px) {

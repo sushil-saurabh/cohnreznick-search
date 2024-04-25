@@ -1,4 +1,3 @@
-import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import { Pagination as SPagination, Select, SortSelect } from '@sitecore-search/ui';
 import type { IPaginationProps } from './pagination.type';
 
@@ -45,7 +44,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
           <SPagination.PrevPage onClick={(e) => e.preventDefault()}>
             <svg
               focusable="false"
-              enable-background="new 0 0 11 20"
+              enableBackground="new 0 0 11 20"
               viewBox="0 0 11 20"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
@@ -79,7 +78,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
           <SPagination.NextPage onClick={(e) => e.preventDefault()}>
             <svg
               focusable="false"
-              enable-background="new 0 0 11 20"
+              enableBackground="new 0 0 11 20"
               viewBox="0 0 11 20"
               xmlns="http://www.w3.org/2000/svg"
               role="img"

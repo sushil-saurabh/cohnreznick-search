@@ -11,7 +11,7 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
             <Link title={a.name} href={`${a.event_redirect_url !== null ? a.event_redirect_url : a.url} `}>
               <div className="Title">{a.title ? a.title : a.name}</div>
               <div
-                className={`publishDate ${a.publish_date || a.author_name ? '' : 'hide'} ${a.content_type === 'Event' ? 'hide' : ''} `}
+                className={`publishDate ${a.publish_date || a.author_name ? '' : 'hide'} ${a.template_name === 'Events' ? 'hide' : ''} `}
               >
                 PublishedDate : {a.publish_date}
                 <span>

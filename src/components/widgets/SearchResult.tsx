@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ISearchResultProps } from '@/utils/common.type';
 import { SEARCH_COMP_TYPE } from '@/utils/common.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
@@ -13,6 +11,9 @@ import {
 import dynamic from 'next/dynamic';
 import type { ChangeEvent } from 'react';
 import React from 'react';
+import EventRenderer from '../EventsRenderer/eventRenderer.component';
+import InsightsRenderer from '../InsightsRenderer/insightsRenderer.component';
+import NewsRenderer from '../NewsRenderer/newsRenderer.component';
 const SearchRenderer = dynamic(import('../SearchRenderer/searchRenderer.component'));
 const SearchResult = React.memo(
   ({
@@ -119,9 +120,11 @@ const SearchResult = React.memo(
         case SEARCH_COMP_TYPE.SEARCH:
           return <SearchRenderer fields={fieldData} />;
         case SEARCH_COMP_TYPE.INSIGHTS:
-          return <></>;
+          return <InsightsRenderer fields={fieldData} />;
         case SEARCH_COMP_TYPE.EVENTS:
-          return <></>;
+          return <EventRenderer fields={fieldData} />;
+        case SEARCH_COMP_TYPE.NEWS:
+          return <NewsRenderer fields={fieldData} />;
       }
       return <></>;
     }, [componentType, fieldData]);

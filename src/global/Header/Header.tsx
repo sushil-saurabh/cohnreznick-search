@@ -34,6 +34,7 @@ const Header = (): JSX.Element => {
   React.useEffect(() => {
     document.body.onclick = () => setIsSearchBoxOpen(false);
   }, []);
+
   return (
     <>
       <header className={`header ${isSrolled ? 'scrolled' : ''}`}>
