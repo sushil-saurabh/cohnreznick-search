@@ -9,13 +9,13 @@ export default function Search() {
   return (
     <Layout>
       <SearchResultsWidget
-        key={q as string}
-        rfkId="rfkid_events"
+        key={''}
+        rfkId="rfkid_7"
         defaultKeyphrase={q as string}
         defaultSortType={SEARCH_SORT_BY_FILTER.RELEVENCE}
         defaultPage={1}
         defaultItemsPerPage={10}
-        componentType="events"
+        componentType="news"
       />
     </Layout>
   );

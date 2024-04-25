@@ -45,7 +45,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
           <SPagination.PrevPage onClick={(e) => e.preventDefault()}>
             <svg
               focusable="false"
-              enable-background="new 0 0 11 20"
+              enableBackground="new 0 0 11 20"
               viewBox="0 0 11 20"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
@@ -79,7 +79,7 @@ const Pagination = ({ fields }: IPaginationProps): JSX.Element => {
           <SPagination.NextPage onClick={(e) => e.preventDefault()}>
             <svg
               focusable="false"
-              enable-background="new 0 0 11 20"
+              enableBackground="new 0 0 11 20"
               viewBox="0 0 11 20"
               xmlns="http://www.w3.org/2000/svg"
               role="img"

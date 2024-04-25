@@ -2,16 +2,15 @@
 import { CardViewSwitcher } from '@sitecore-search/ui';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import Pagination from '../../components/widgets/Pagination/pagination.component';
+import Pagination from '../widgets/Pagination/pagination.component';
 import type { GRID_TYPE } from '../widgets/SearchContent/searchContent.type';
-import SearchInput from '../widgets/SearchInput/searchInput.component';
-import type { ISearchRendererProps } from './searchRenderer.type';
+import type { ISearchRendererProps } from './insightsRenderer.type';
 import NoResult from '../widgets/NoResult/noResult.component';
 const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
 const SearchFilter = dynamic(import('../widgets/SearchFilter/searchFilter.component'));
 const Facets = dynamic(import('../widgets/Facets/facets.component'));
 const Skeleton = dynamic(import('react-loading-skeleton'));
-const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
+const NewsRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
   const [windowWidth, setWindowWidth] = React.useState(0);
   const [isBodyClassToggled, setIsBodyClassToggled] = React.useState(false);
@@ -61,18 +60,15 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   } = fields;
   return (
     <div className="main-container">
-      <h1 className="content-header__title">Search Results</h1>
+      <h1 className="content-header__title">News Results</h1>
       <div
-        className={`coveoMainSection ${isFetching || totalItems ? '' : 'full'} ${windowWidth > 991 ? '' : 'smallScreen'}`}
+        className={`coveoMainSection insights ${isFetching || totalItems ? '' : 'full'} ${windowWidth > 991 ? '' : 'smallScreen'}`}
       >
         <div className="mobilebg" id="filterButtonMobile" onClick={toggleBodyClass} />
         <div className="facetSection">
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
         <div className="resultSection">
-          <div className="PageSearch">
-            <SearchInput />
-          </div>
           {isFetching || totalItems ? (
             <>
               <button className="filterButtonMobile" onClick={toggleBodyClass}>
@@ -147,4 +143,4 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
     </div>
   );
 };
-export default SearchRenderer;
+export default NewsRenderer;

@@ -1,8 +1,15 @@
 import { useRouter } from 'next/router';
 import type { FormEvent } from 'react';
+import React from 'react';
 
 const SearchInput = (): JSX.Element => {
   const router = useRouter();
+  const { q } = router.query;
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  React.useEffect(() => {
+    setSearchTerm(q as string);
+  }, [q]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -11,17 +18,19 @@ const SearchInput = (): JSX.Element => {
     router.replace(`/search?q=${target.value}`);
     target.value = '';
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-group">
         <div className="form-outline" data-mdb-input-init>
           <input
             type="search"
-            //  onChange={keyphraseHandler}
+            onChange={(e) => setSearchTerm(e.target.value)}
             autoComplete="off"
-            placeholder="Type to search..."
+            placeholder="Search..."
             name="query"
             className="searchControl"
+            value={searchTerm}
             onClick={(ev) => ev.stopPropagation()}
             onInput={(ev) => ev.stopPropagation()}
           />
@@ -29,7 +38,7 @@ const SearchInput = (): JSX.Element => {
         <button type="submit" className="searchBtn" data-mdb-ripple-init>
           <svg
             focusable="false"
-            enable-background="new 0 0 20 20"
+            enableBackground="new 0 0 20 20"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
             role="img"
