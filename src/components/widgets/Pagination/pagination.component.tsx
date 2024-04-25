@@ -1,4 +1,3 @@
-import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import { Pagination as SPagination, Select, SortSelect } from '@sitecore-search/ui';
 import type { IPaginationProps } from './pagination.type';
 

@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ISearchResultProps } from '@/utils/common.type';
 import { SEARCH_COMP_TYPE } from '@/utils/common.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';

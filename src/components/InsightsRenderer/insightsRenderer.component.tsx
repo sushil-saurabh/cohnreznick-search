@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { CardViewSwitcher } from '@sitecore-search/ui';
 import dynamic from 'next/dynamic';
 import React from 'react';

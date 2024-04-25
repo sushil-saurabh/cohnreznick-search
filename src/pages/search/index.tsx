@@ -9,7 +9,7 @@ export default function Search() {
   return (
     <>
       <Head>
-        <title>My page title</title>
+        <title>Search Results - CohnReznick</title>
       </Head>
       <Layout>
         <SearchResultsWidget

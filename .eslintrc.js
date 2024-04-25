@@ -38,7 +38,7 @@ module.exports = {
   ignorePatterns: ['node_modules', 'build', 'src/temp'],
   rules: {
     'complexity': ['warn', 15],
-    'max-lines-per-function': ['warn', { max: 100, skipComments: true, skipBlankLines: true }],
+    'max-lines-per-function': ['warn', { max: 200, skipComments: true, skipBlankLines: true }],
     '@typescript-eslint/array-type': [
       'warn',
       {
@@ -167,7 +167,7 @@ module.exports = {
     ],
     '@tanstack/query/exhaustive-deps': 'error',
     '@tanstack/query/prefer-query-object-syntax': 'error',
-    'react/display-name':'off'
+    'react/display-name': 'off'
   },
 
   overrides: [
