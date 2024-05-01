@@ -35,7 +35,9 @@ const InsightsRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   } = fields;
   return (
     <div className="main-container">
-      <h1 className="content-header__title">Insights Results</h1>
+      <h3 className="section-title">
+        <span className="field-title">All Insights</span>
+      </h3>
       <div
         className={`coveoMainSection insights ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
       >
