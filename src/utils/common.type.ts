@@ -16,7 +16,14 @@ export interface ISearchResultProps {
   defaultItemsPerPage: SearchResultsStoreState['itemsPerPage'];
   defaultKeyphrase: SearchResultsStoreState['keyphrase'];
   pageFields?: ISearchPageFields;
-  componentType: 'search' | 'events' | 'insights' | 'news';
+  componentType:
+    | 'search'
+    | 'events'
+    | 'insights'
+    | 'news'
+    | 'cohnreznick-tax'
+    | 'govcon360'
+    | 'coronavirus-resource-center';
 }
 
 export type HighlightModel = {
@@ -51,6 +58,9 @@ export enum SEARCH_COMP_TYPE {
   EVENTS = 'events',
   INSIGHTS = 'insights',
   NEWS = 'news',
+  COHNREZNICKTAX = 'cohnreznick-tax',
+  GOVCON360 = 'govcon360',
+  CORONAVIRUSRESOURCECENTER = 'coronavirus-resource-center',
 }
 export interface ISearchResultFields {
   fields: {
@@ -77,3 +87,22 @@ export interface ISearchResultFields {
     totalItems: number;
   };
 }
+
+export const dateFormat = (date: string) => {
+  if (date) {
+    const [day, month, year] = date.split(' ');
+    console.log(day, month, year);
+    return {
+      day,
+      month,
+      year,
+    };
+  }
+  return {
+    day: '',
+    month: '',
+    year: '',
+  };
+};
+
+export const globleFilter = () => {};

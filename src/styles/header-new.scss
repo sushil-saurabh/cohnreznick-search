@@ -466,6 +466,7 @@
 
     @media (max-width: 991px) {
       padding: 16px 0 10px;
+      z-index: 999;
     }
     .navbar-fixed-top .header-main-nav {
       .navbar-brand.logo-black {
@@ -571,7 +572,11 @@
     }
   }
 }
-
+body.facetsOpen {
+  .scrolled {
+    z-index: 99;
+  }
+}
 // CODE FOR MENU NAVIGATION
 
 .main-nav-fixed-wrap {
