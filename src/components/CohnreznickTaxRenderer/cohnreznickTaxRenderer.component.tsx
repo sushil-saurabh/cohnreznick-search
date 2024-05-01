@@ -3,18 +3,16 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 import Pagination from '../widgets/Pagination/pagination.component';
 import type { GRID_TYPE } from '../widgets/SearchContent/searchContent.type';
-import type { ISearchRendererProps } from './eventRenderer.type';
+import type { ISearchRendererProps } from './cohnreznickTaxRenderer.type';
 import NoResult from '../widgets/NoResult/noResult.component';
 import { useGlobalSearch } from '@/provider/content/content';
-import { dateFormat } from '@/utils/common.type';
 const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
 const SearchFilter = dynamic(import('../widgets/SearchFilter/searchFilter.component'));
 const Facets = dynamic(import('../widgets/Facets/facets.component'));
 const Skeleton = dynamic(import('react-loading-skeleton'));
-const EventRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
-  const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_GRID);
+const CohnreznickTaxRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
+  const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
   const globaleValue = useGlobalSearch();
-
   const {
     onSortChange,
     facets,
@@ -36,9 +34,9 @@ const EventRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   } = fields;
   return (
     <div className="main-container">
-      <h1 className="content-header__title">Events Results</h1>
+      <h1 className="content-header__title">cohnreznick-tax Results</h1>
       <div
-        className={`coveoMainSection events ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
+        className={`coveoMainSection ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
       >
         <div className="mobilebg" id="filterButtonMobile" onClick={globaleValue.toggleBodyClass} />
         <div className="facetSection">
@@ -119,4 +117,4 @@ const EventRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
     </div>
   );
 };
-export default EventRenderer;
+export default CohnreznickTaxRenderer;

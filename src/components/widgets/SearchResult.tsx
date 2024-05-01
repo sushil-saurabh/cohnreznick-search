@@ -14,6 +14,9 @@ import React from 'react';
 import EventRenderer from '../EventsRenderer/eventRenderer.component';
 import InsightsRenderer from '../InsightsRenderer/insightsRenderer.component';
 import NewsRenderer from '../NewsRenderer/newsRenderer.component';
+import CohnreznickTaxRenderer from '../CohnreznickTaxRenderer/cohnreznickTaxRenderer.component';
+import Govcon360Renderer from '../Govcon360Renderer/govcon360Renderer.component';
+import CoronavirusResourceCenterContentRenderer from '../CoronavirusResourceCenterRenderer/coronavirusResourceCenterRenderer.component';
 const SearchRenderer = dynamic(import('../SearchRenderer/searchRenderer.component'));
 const SearchResult = React.memo(
   ({
@@ -125,6 +128,12 @@ const SearchResult = React.memo(
           return <EventRenderer fields={fieldData} />;
         case SEARCH_COMP_TYPE.NEWS:
           return <NewsRenderer fields={fieldData} />;
+        case SEARCH_COMP_TYPE.COHNREZNICKTAX:
+          return <CohnreznickTaxRenderer fields={fieldData} />;
+        case SEARCH_COMP_TYPE.GOVCON360:
+          return <Govcon360Renderer fields={fieldData} />;
+        case SEARCH_COMP_TYPE.CORONAVIRUSRESOURCECENTER:
+          return <CoronavirusResourceCenterContentRenderer fields={fieldData} />;
       }
       return <></>;
     }, [componentType, fieldData]);
