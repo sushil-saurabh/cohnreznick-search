@@ -10,6 +10,7 @@
     text-decoration: none;
     color: #000;
     flex-direction: column;
+    width: 100%;
     max-width: 50%;
     border: 1px solid rgba(162, 170, 176, 0.31);
     @media (max-width: 991px) {
@@ -71,6 +72,11 @@
         &:empty {
           display: none;
         }
+      }
+    }
+    &:hover {
+      .Title {
+        color: #007cbf;
       }
     }
   }

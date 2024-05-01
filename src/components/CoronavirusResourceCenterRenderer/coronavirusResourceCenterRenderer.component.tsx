@@ -34,7 +34,9 @@ const CoronavirusResourceCenterContentRenderer = ({ fields }: ISearchRendererPro
   } = fields;
   return (
     <div className="main-container">
-      <h1 className="content-header__title">Coronavirus Resource Center Results</h1>
+      <h3 className="section-title">
+        <span className="field-title">All Insights</span>
+      </h3>
       <div
         className={`coveoMainSection ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
       >

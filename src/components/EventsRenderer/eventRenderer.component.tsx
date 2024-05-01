@@ -36,7 +36,9 @@ const EventRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   } = fields;
   return (
     <div className="main-container">
-      <h1 className="content-header__title">Events Results</h1>
+      <h3 className="section-title">
+        <span className="field-title">All Events</span>
+      </h3>
       <div
         className={`coveoMainSection events ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
       >

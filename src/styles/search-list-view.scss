@@ -80,3 +80,54 @@
     }
   }
 }
+
+.section-title {
+  position: relative;
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-transform: none;
+  margin: 30px 0;
+
+  @media (max-width: 991px) {
+    margin: 40px 0 10px;
+  }
+}
+
+.section-title.text-right {
+  text-align: right;
+}
+
+.section-title.text-right span {
+  padding-left: 15px;
+  padding-right: 0;
+}
+
+@media (max-width: 991px) {
+  .section-title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.section-title span {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  padding: 0 15px 0 0;
+}
+
+.section-title:after {
+  content: '';
+  border-top: 1px solid #a2aab0;
+  position: absolute;
+  top: 21px;
+  left: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  @media (max-width: 991px) {
+    top: 16px;
+  }
+}
