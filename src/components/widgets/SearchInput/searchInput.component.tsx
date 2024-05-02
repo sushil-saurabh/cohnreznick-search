@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import type { FormEvent } from 'react';
 import React, { useCallback } from 'react';
 import { HighlightComponent, getDescription } from '../Highlights/highlights';
-export const DEFAULT_IMAGE =
-  'https://wwwsitecorecom.azureedge.net/-/media/sitecoresite/images/global/temp/doc.svg?md=20201209T175156Z';
 export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: any) => {
   const router = useRouter();
   const {
@@ -52,6 +50,9 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
           autoComplete="off"
           placeholder="Type to search..."
           name="query"
+          onClick={(ev) => {
+            ev.stopPropagation();
+          }}
         />
       </form>
       <PreviewSearch.Content ref={widgetRef}>
@@ -71,7 +72,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
                           onClick={(e) => {
                             e.preventDefault();
                             onItemClick({ id: article.id, index, sourceId: article.source_id });
-                            /*  navigate(`/detail/${article.id}`); */
+                            router.replace(`/search?q=${article.title}`);
                           }}
                         >
                           <ArticleCard.Root>
