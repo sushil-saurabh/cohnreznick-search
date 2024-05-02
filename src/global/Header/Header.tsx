@@ -70,7 +70,7 @@ const Header = (): JSX.Element => {
                 <div className="menu-right-control">
                   <div className="search-section">
                     <div className={`search-box-dark ${isSearchBoxOpen ? 'searchshow' : ''}`}>
-                      <SearchInput />
+                    <SearchInput defaultItemsPerPage={8} rfkId="rfkid_6" />
                     </div>
                   </div>
 

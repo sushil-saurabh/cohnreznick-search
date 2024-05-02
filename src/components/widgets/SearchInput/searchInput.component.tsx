@@ -1,15 +1,41 @@
+import { HIGHLIGHT_DATA } from '@/utils/helper';
+import { WidgetDataType, usePreviewSearch, widget } from '@sitecore-search/react';
+import { ArticleCard, Presence, PreviewSearch } from '@sitecore-search/ui';
 import { useRouter } from 'next/router';
 import type { FormEvent } from 'react';
-import React from 'react';
-
-const SearchInput = (): JSX.Element => {
+import React, { useCallback } from 'react';
+import { HighlightComponent, getDescription } from '../Highlights/highlights';
+export const DEFAULT_IMAGE =
+  'https://wwwsitecorecom.azureedge.net/-/media/sitecoresite/images/global/temp/doc.svg?md=20201209T175156Z';
+export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: any) => {
   const router = useRouter();
-  const { q } = router.query;
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const {
+    widgetRef,
+    actions: { onItemClick, onKeyphraseChange },
+    queryResult,
+    queryResult: {
+      isFetching,
+      isLoading,
+      data: { suggestion: { auto_named_suggester: articleSuggestions = [] } = {} } = {},
+    },
+  } = usePreviewSearch({
+    query: (query) => {
+      query.getRequest();
+    },
+    state: {
+      suggestionsList: [{ suggestion: 'auto_named_suggester', max: 10 }],
+      itemsPerPage: defaultItemsPerPage,
+    },
+  });
 
-  React.useEffect(() => {
-    setSearchTerm(q as string);
-  }, [q]);
+  const loading = isLoading || isFetching;
+  const keyphraseHandler = useCallback(
+    (event: any) => {
+      const target = event.target;
+      onKeyphraseChange({ keyphrase: target.value });
+    },
+    [onKeyphraseChange],
+  );
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,45 +44,57 @@ const SearchInput = (): JSX.Element => {
     router.replace(`/search?q=${target.value}`);
     target.value = '';
   };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-group">
-        <div className="form-outline" data-mdb-input-init>
-          <input
-            type="search"
-            onChange={(e) => setSearchTerm(e.target.value)}
-            autoComplete="off"
-            placeholder="Search..."
-            name="query"
-            className="searchControl"
-            value={searchTerm}
-            onClick={(ev) => ev.stopPropagation()}
-            onInput={(ev) => ev.stopPropagation()}
-          />
-        </div>
-        <button type="submit" className="searchBtn" data-mdb-ripple-init>
-          <svg
-            focusable="false"
-            enableBackground="new 0 0 20 20"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Search"
-            className="coveo-search-button-svg"
-          >
-            <title>Search</title>
-            <g fill="currentColor">
-              <path
-                className="coveo-magnifier-circle-svg"
-                d="m8.368 16.736c-4.614 0-8.368-3.754-8.368-8.368s3.754-8.368 8.368-8.368 8.368 3.754 8.368 8.368-3.754 8.368-8.368 8.368m0-14.161c-3.195 0-5.793 2.599-5.793 5.793s2.599 5.793 5.793 5.793 5.793-2.599 5.793-5.793-2.599-5.793-5.793-5.793"
-              />
-              <path d="m18.713 20c-.329 0-.659-.126-.91-.377l-4.552-4.551c-.503-.503-.503-1.318 0-1.82.503-.503 1.318-.503 1.82 0l4.552 4.551c.503.503.503 1.318 0 1.82-.252.251-.581.377-.91.377" />
-            </g>
-          </svg>
-        </button>
-      </div>
-    </form>
+    <PreviewSearch.Root>
+      <form onSubmit={handleSubmit}>
+        <PreviewSearch.Input
+          onChange={keyphraseHandler}
+          autoComplete="off"
+          placeholder="Type to search..."
+          name="query"
+        />
+      </form>
+      <PreviewSearch.Content ref={widgetRef}>
+        <Presence present={loading}>
+          <span>Loading...</span>
+        </Presence>
+        <Presence present={!loading}>
+          <>
+            <PreviewSearch.Results defaultQueryResult={queryResult}>
+              {({ isFetching: loading, data: { content: articles = [] } = {} }) => (
+                <PreviewSearch.Items data-loading={loading}>
+                  {!loading &&
+                    articles.map((article, index) => (
+                      <PreviewSearch.Item key={article.id} asChild>
+                        <a
+                          href={article.url}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            onItemClick({ id: article.id, index, sourceId: article.source_id });
+                            /*  navigate(`/detail/${article.id}`); */
+                          }}
+                        >
+                          <ArticleCard.Root>
+                            <ArticleCard.Title>
+                              <HighlightComponent
+                                text={getDescription(article, 'title')}
+                                preSeparator={HIGHLIGHT_DATA.pre}
+                                postSeparator={HIGHLIGHT_DATA.post}
+                                highlightElement={HIGHLIGHT_DATA.highlightTag}
+                              />
+                            </ArticleCard.Title>
+                          </ArticleCard.Root>
+                        </a>
+                      </PreviewSearch.Item>
+                    ))}
+                </PreviewSearch.Items>
+              )}
+            </PreviewSearch.Results>
+          </>
+        </Presence>
+      </PreviewSearch.Content>
+    </PreviewSearch.Root>
   );
-};
+});
+const SearchInput = widget(SearchAutoSuggestInput, WidgetDataType.PREVIEW_SEARCH, 'content');
 export default SearchInput;
