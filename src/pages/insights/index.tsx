@@ -15,7 +15,7 @@ export default function Insights() {
       <Layout>
         <SearchResultsWidget
           key={'grand'}
-          rfkId="rfkid_7"
+          rfkId="rkfid_insights"
           defaultKeyphrase={q as string}
           defaultSortType={SEARCH_SORT_BY_FILTER.RELEVENCE}
           defaultPage={1}
