@@ -1,22 +1,16 @@
 import type { ISearchResultProps } from '@/utils/common.type';
 import { SEARCH_COMP_TYPE } from '@/utils/common.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
-import {
-  FilterEqual,
-  WidgetDataType,
-  useSearchResults,
-  useSearchResultsSelectedFilters,
-  widget,
-} from '@sitecore-search/react';
+import { FilterEqual, WidgetDataType, useSearchResults, widget } from '@sitecore-search/react';
 import dynamic from 'next/dynamic';
 import type { ChangeEvent } from 'react';
 import React from 'react';
+import CohnreznickTaxRenderer from '../CohnreznickTaxRenderer/cohnreznickTaxRenderer.component';
+import CoronavirusResourceCenterContentRenderer from '../CoronavirusResourceCenterRenderer/coronavirusResourceCenterRenderer.component';
 import EventRenderer from '../EventsRenderer/eventRenderer.component';
+import Govcon360Renderer from '../Govcon360Renderer/govcon360Renderer.component';
 import InsightsRenderer from '../InsightsRenderer/insightsRenderer.component';
 import NewsRenderer from '../NewsRenderer/newsRenderer.component';
-import CohnreznickTaxRenderer from '../CohnreznickTaxRenderer/cohnreznickTaxRenderer.component';
-import Govcon360Renderer from '../Govcon360Renderer/govcon360Renderer.component';
-import CoronavirusResourceCenterContentRenderer from '../CoronavirusResourceCenterRenderer/coronavirusResourceCenterRenderer.component';
 const SearchRenderer = dynamic(import('../SearchRenderer/searchRenderer.component'));
 const SearchResult = React.memo(
   ({
@@ -25,6 +19,7 @@ const SearchResult = React.memo(
     defaultKeyphrase,
     defaultItemsPerPage,
     componentType,
+    defaultFacets,
   }: ISearchResultProps): JSX.Element => {
     const filterEqual = new FilterEqual('index_name', process.env.NEXT_PUBLIC_SEARCH_INDEX_NAME) as FilterEqual;
     //const filterEqual = new FilterEqual('index_name', 'cohnreznick-dev');
@@ -65,6 +60,7 @@ const SearchResult = React.memo(
         page: defaultPage,
         itemsPerPage: defaultItemsPerPage,
         keyphrase: defaultKeyphrase,
+        selectedFacets: defaultFacets,
       },
     });
     const keyphraseHandler = React.useCallback(
@@ -76,12 +72,10 @@ const SearchResult = React.memo(
     );
     const totalPages = Math.ceil(totalItems / (itemsPerPage !== 0 ? itemsPerPage : 1));
     const selectedSortIndex = sortChoices.findIndex((s) => s.name === sortType);
-    const selectedFacetsFromApi = useSearchResultsSelectedFilters();
     const fieldData = React.useMemo(() => {
       return {
         totalPages,
         selectedSortIndex,
-        selectedFacetsFromApi,
         articles,
         facets,
         onSortChange,
@@ -109,7 +103,6 @@ const SearchResult = React.memo(
       onResultsPerPageChange,
       onSortChange,
       page,
-      selectedFacetsFromApi,
       selectedSortIndex,
       sortChoices,
       totalPages,

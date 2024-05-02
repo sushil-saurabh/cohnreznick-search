@@ -9,7 +9,7 @@ export default function Document() {
           href="https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/favicon.ico"
         />
       </Head>
-      <body>
+      <body className="open">
         <Main />
         <NextScript />
       </body>

@@ -16,6 +16,7 @@ export interface ISearchResultProps {
   defaultItemsPerPage: SearchResultsStoreState['itemsPerPage'];
   defaultKeyphrase: SearchResultsStoreState['keyphrase'];
   pageFields?: ISearchPageFields;
+  defaultFacets?: Array<{ facetId: string; facetValueId: string }>;
   componentType:
     | 'search'
     | 'events'
@@ -52,6 +53,7 @@ export enum SEARCH_SORT_BY_FILTER {
   ASC = 'asc',
   DESC = 'desc',
   PUBLISH_DATE = 'publishdate',
+  EVENTS_DATES = 'eventdate',
 }
 export enum SEARCH_COMP_TYPE {
   SEARCH = 'search',
@@ -86,4 +88,11 @@ export interface ISearchResultFields {
     itemsPerPage: number;
     totalItems: number;
   };
+}
+export interface ICheckedFacets {
+  facetId: string;
+  facetLabel: string;
+  facetValueId: string;
+  type: string;
+  valueLabel: string;
 }

@@ -131,3 +131,11 @@
     top: 16px;
   }
 }
+
+body.open[data-scroll-locked='1'] {
+  overflow: auto !important;
+  margin-right: 0px !important;
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
+}
