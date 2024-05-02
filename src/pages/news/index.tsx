@@ -15,7 +15,7 @@ export default function News() {
       <Layout>
         <SearchResultsWidget
           key={''}
-          rfkId="rfkid_7"
+          rfkId="rkfid_news"
           defaultKeyphrase={q as string}
           defaultSortType={SEARCH_SORT_BY_FILTER.RELEVENCE}
           defaultPage={1}
