@@ -47,7 +47,7 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
         </div>
         <div className="resultSection">
           <div className="PageSearch">
-            <SearchInput />
+            <SearchInput defaultItemsPerPage={8} rfkId="rfkid_6" />
           </div>
           {isFetching || totalItems ? (
             <>

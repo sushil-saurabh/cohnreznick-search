@@ -50,7 +50,7 @@ const SearchResult = React.memo(
         query
           .getRequest()
           .setSearchQueryHighlightFragmentSize(500)
-          .setSearchQueryHighlightFields(['name', 'title', 'description', 'body'])
+          .setSearchQueryHighlightFields(['name', 'title', 'description'])
           .setSearchQueryHighlightPreTag(HIGHLIGHT_DATA.pre)
           .setSearchQueryHighlightPostTag(HIGHLIGHT_DATA.post)
           .setSearchFilter(filterEqual);

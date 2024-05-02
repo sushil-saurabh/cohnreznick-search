@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 
 export interface ISearchInputProps {
-  fields?: {
+  fields: {
     keyphraseHandler: (event: ChangeEvent<HTMLInputElement>) => void;
   };
 }

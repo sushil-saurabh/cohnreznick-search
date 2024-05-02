@@ -25,8 +25,8 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
           onFacetClick(e);
         }}
       >
-        {facets.map((f) => (
-          <AccordionFacets.Facet facetId={f.name} key={f.name} className="facetHeader">
+        {facets.map((f, i) => (
+          <AccordionFacets.Facet facetId={f.name} key={`${f.name}_${i}_${f.label}`} className="facetHeader">
             <AccordionFacets.Header className="facetHeaderTitle">
               <AccordionFacets.Trigger className="facetsbtns">{f.label}</AccordionFacets.Trigger>
             </AccordionFacets.Header>
@@ -35,7 +35,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
                 {f.value.map((v, index) => (
                   <AccordionFacets.Item
                     {...{ index, facetValueId: v.id, selected: isChecked(v) }}
-                    key={v.id}
+                    key={`${v.id}_${index}`}
                     className={v.text ? '' : 'hide'}
                   >
                     <AccordionFacets.ItemCheckbox>
