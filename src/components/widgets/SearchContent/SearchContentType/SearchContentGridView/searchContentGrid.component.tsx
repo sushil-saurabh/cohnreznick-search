@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
 import { HighlightComponent, getDescription } from '@/components/widgets/Highlights/highlights';
 import type { ISearchContentListProps } from '../SearchContentListView/searchContentList.type';
-import { dateFormat } from '@/utils/common.type';
+import dateFormat from '@/utils/dateFormat';
 
 const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => {
   return (
