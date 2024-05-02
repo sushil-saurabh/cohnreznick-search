@@ -16,6 +16,7 @@ export interface ISearchResultProps {
   defaultItemsPerPage: SearchResultsStoreState['itemsPerPage'];
   defaultKeyphrase: SearchResultsStoreState['keyphrase'];
   pageFields?: ISearchPageFields;
+  defaultFacets?: Array<{ facetId: string; facetValueId: string }>;
   componentType:
     | 'search'
     | 'events'
@@ -86,4 +87,11 @@ export interface ISearchResultFields {
     itemsPerPage: number;
     totalItems: number;
   };
+}
+export interface ICheckedFacets {
+  facetId: string;
+  facetLabel: string;
+  facetValueId: string;
+  type: string;
+  valueLabel: string;
 }
