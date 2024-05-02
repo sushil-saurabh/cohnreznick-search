@@ -7,6 +7,7 @@
   transition: all 400ms ease;
   @media (max-width: 991px) {
     padding: 8px 0 10px;
+    z-index: 999;
   }
   .navbar-fixed-top {
     padding: 0;
@@ -1297,5 +1298,10 @@ body.facetsOpen {
         }
       }
     }
+  }
+}
+body.facetsOpen {
+  .header {
+    z-index: 9;
   }
 }
