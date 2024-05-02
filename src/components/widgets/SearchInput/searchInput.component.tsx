@@ -9,6 +9,12 @@ export const DEFAULT_IMAGE =
   'https://wwwsitecorecom.azureedge.net/-/media/sitecoresite/images/global/temp/doc.svg?md=20201209T175156Z';
 export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: any) => {
   const router = useRouter();
+  const { q } = router.query;
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  React.useEffect(() => {
+    setSearchTerm(q as string);
+  }, [q]);
   const {
     widgetRef,
     actions: { onItemClick, onKeyphraseChange },
@@ -32,11 +38,16 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
   const keyphraseHandler = useCallback(
     (event: any) => {
       const target = event.target;
-      onKeyphraseChange({ keyphrase: target.value });
+      setSearchTerm(target.value);
+      if (target.value.length >= 3) {
+        onKeyphraseChange({ keyphrase: target.value });
+      }
     },
     [onKeyphraseChange],
   );
-
+  const handleRemoveParam = () => {
+    router.push({ pathname: router.pathname });
+  };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // @ts-ignore
@@ -52,8 +63,10 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
           autoComplete="off"
           placeholder="Type to search..."
           name="query"
+          value={searchTerm}
         />
       </form>
+      <button onClick={handleRemoveParam}>X</button>
       <PreviewSearch.Content ref={widgetRef}>
         <Presence present={loading}>
           <span>Loading...</span>
@@ -72,6 +85,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
                             e.preventDefault();
                             onItemClick({ id: article.id, index, sourceId: article.source_id });
                             /*  navigate(`/detail/${article.id}`); */
+                            router.replace(`/search?q=${article.title}`);
                           }}
                         >
                           <ArticleCard.Root>

@@ -10,13 +10,13 @@ interface ILayoutProps {
 const Layout = ({ children }: ILayoutProps): JSX.Element => {
   return (
     <>
-      <Header />
       <GlobalSearchProvider>
+        <Header />
         <div id="content" className="container">
           {children}
         </div>
+        <Footer />
       </GlobalSearchProvider>
-      <Footer />
     </>
   );
 };
