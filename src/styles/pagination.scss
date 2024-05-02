@@ -1,4 +1,7 @@
 .paginationOuter {
+  &.hide {
+    display: none;
+  }
   width: 100%;
   display: flex;
   justify-content: center;
@@ -27,9 +30,9 @@
         background-color: #007cbf;
         color: #fff;
       }
-      &:last-child {
-        display: none;
-      }
+      // &:last-child {
+      //   display: none;
+      // }
     }
     & > span {
       display: none;

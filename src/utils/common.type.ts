@@ -53,6 +53,7 @@ export enum SEARCH_SORT_BY_FILTER {
   ASC = 'asc',
   DESC = 'desc',
   PUBLISH_DATE = 'publishdate',
+  EVENTS_DATES = 'eventdate',
 }
 export enum SEARCH_COMP_TYPE {
   SEARCH = 'search',

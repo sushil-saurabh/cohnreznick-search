@@ -17,7 +17,7 @@ export default function Insights() {
           key={'grand'}
           rfkId="rkfid_insights"
           defaultKeyphrase={q as string}
-          defaultSortType={SEARCH_SORT_BY_FILTER.RELEVENCE}
+          defaultSortType={SEARCH_SORT_BY_FILTER.PUBLISH_DATE}
           defaultPage={1}
           defaultItemsPerPage={10}
           componentType="insights"
