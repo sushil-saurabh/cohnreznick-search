@@ -1,8 +1,13 @@
 .input-group {
   display: flex;
   margin-bottom: 10px;
+  position: relative;
+  flex-direction: column;
   .form-outline {
     width: 100%;
+  }
+  .search-section {
+    display: flex;
   }
   .search-control {
     border: 1px solid #7e8c9a;
@@ -147,6 +152,48 @@
       &:focus {
         outline: 0;
         box-shadow: none;
+      }
+    }
+  }
+}
+
+.suggesion {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: calc(100% - 57px);
+  background-color: #fff;
+  z-index: 1;
+  border: thin solid #919fb1;
+  border-top: 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: block;
+      a {
+        font-size: 16px;
+        font-weight: 700;
+        padding: 12px;
+        color: #323e48;
+        display: block;
+        &:hover {
+          background-color: #f3f4f4;
+        }
+      }
+    }
+  }
+}
+.search-box-dark {
+  .suggesion {
+    top: 52px;
+    border-top: thin solid #919fb1;
+    ul {
+      li {
+        a {
+          padding: 12px 18px;
+        }
       }
     }
   }
