@@ -6,7 +6,7 @@ import type { GRID_TYPE } from '../widgets/SearchContent/searchContent.type';
 import type { ISearchRendererProps } from './eventRenderer.type';
 import NoResult from '../widgets/NoResult/noResult.component';
 import { useGlobalSearch } from '@/provider/content/content';
-import { dateFormat } from '@/utils/common.type';
+
 const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
 const SearchFilter = dynamic(import('../widgets/SearchFilter/searchFilter.component'));
 const Facets = dynamic(import('../widgets/Facets/facets.component'));
