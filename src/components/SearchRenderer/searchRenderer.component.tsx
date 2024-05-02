@@ -1,13 +1,14 @@
 /* eslint-disable max-lines-per-function */
+import { useGlobalSearch } from '@/provider/content/content';
 import { CardViewSwitcher } from '@sitecore-search/ui';
 import dynamic from 'next/dynamic';
 import React from 'react';
 import Pagination from '../../components/widgets/Pagination/pagination.component';
+import NoResult from '../widgets/NoResult/noResult.component';
 import type { GRID_TYPE } from '../widgets/SearchContent/searchContent.type';
 import SearchInput from '../widgets/SearchInput/searchInput.component';
+import SelectedFacets from '../widgets/SelectedFacets/selectedFacets.component';
 import type { ISearchRendererProps } from './searchRenderer.type';
-import NoResult from '../widgets/NoResult/noResult.component';
-import { useGlobalSearch } from '@/provider/content/content';
 const SearchContentComponent = dynamic(import('../widgets/SearchContent/searchContent.component'));
 const SearchFilter = dynamic(import('../widgets/SearchFilter/searchFilter.component'));
 const Facets = dynamic(import('../widgets/Facets/facets.component'));
@@ -33,7 +34,6 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
     articles,
     totalItems,
     itemsPerPage,
-    selectedFacetsFromApi,
   } = fields;
   return (
     <div className="main-container">
@@ -54,33 +54,7 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
               <button className="filterButtonMobile" onClick={globaleValue.toggleBodyClass}>
                 Filters
               </button>
-              <ul className="fiterSelected">
-                {selectedFacetsFromApi.map((selectedFacet: any) => (
-                  <li key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}>
-                    <div className="items">
-                      <span className="type">{selectedFacet.facetLabel}:</span>
-                      <span className="singleitem" onClick={() => onRemoveFilter(selectedFacet)}>
-                        <span>{selectedFacet.valueLabel}</span>
-                        <button>
-                          <svg
-                            focusable="false"
-                            enableBackground="new 0 0 13 13"
-                            viewBox="0 0 13 13"
-                            xmlns="http://www.w3.org/2000/svg"
-                            role="img"
-                            aria-label="Clear"
-                          >
-                            <title>Clear</title>
-                            <g fill="currentColor">
-                              <path d="m7.881 6.501 4.834-4.834c.38-.38.38-1.001 0-1.381s-1.001-.38-1.381 0l-4.834 4.834-4.834-4.835c-.38-.38-1.001-.38-1.381 0s-.38 1.001 0 1.381l4.834 4.834-4.834 4.834c-.38.38-.38 1.001 0 1.381s1.001.38 1.381 0l4.834-4.834 4.834 4.834c.38.38 1.001.38 1.381 0s .38-1.001 0-1.381z" />
-                            </g>
-                          </svg>
-                        </button>
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <SelectedFacets fields={{ onRemoveFilter }} />
               <div className="SearchFilter">
                 <SearchFilter
                   fields={{
