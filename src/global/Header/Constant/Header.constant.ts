@@ -29,7 +29,7 @@ export const HEADER_LINK = {
           },
           link: {
             label: 'Explore Our Industries',
-            url: 'https://www.cohnreznick.com/industriesjavascript:void(0)',
+            url: 'https://www.cohnreznick.com/industries',
           },
           childLinks: [
             {
@@ -99,7 +99,7 @@ export const HEADER_LINK = {
                   },
                   link: {
                     label: 'Consumer and Industrial',
-                    url: 'javascript:void(0)',
+                    url: 'https://www.cohnreznick.com/industries/consumer-and-industrial',
                   },
                 },
               ],
@@ -120,7 +120,7 @@ export const HEADER_LINK = {
                   description:
                     'We provide award-winning advisory, tax, and compliance services supporting the entire investment management ecosystem –private equity firms and portfolio companies to hedge funds and independent sponsors.',
                   bottomLink: {
-                    title: 'Explore The Consumer &',
+                    title: '',
                     children: [
                       {
                         label: 'Broker Dealers',
@@ -171,49 +171,6 @@ export const HEADER_LINK = {
                   link: {
                     label: 'Financial Sponsors & Services',
                     url: 'https://www.cohnreznick.com/industries/financial-sponsors-and-financial-services',
-                  },
-                },
-              ],
-            },
-            {
-              label: 'Consumer & Industrial',
-              url: 'javascript:void(0)',
-              index: '1-1',
-              childLinkChildren: [
-                {
-                  image: {
-                    src: '',
-                  },
-                  backImage: {
-                    src: 'https://www.cohnreznick.com/-/media/themes/cohnreznick-sites/cohnreznick-site/cohnreznicktheme/images/back-mobile.png',
-                  },
-                  heading: 'Consumer & Industrial',
-                  description:
-                    'With integrated teams focused on the consumer, hospitality, and manufacturing and distribution industries, we’ll help you leverage process innovation, manage growth capital, and support your brand strategy.',
-                  bottomLink: {
-                    title: '',
-                    children: [
-                      {
-                        label: 'Cannabis',
-                        url: 'https://www.cohnreznick.com/industries/consumer-and-industrial/cannabis',
-                      },
-                      {
-                        label: 'Consumer',
-                        url: 'https://www.cohnreznick.com/industries/consumer-and-industrial/consumer',
-                      },
-                      {
-                        label: 'Hospitality',
-                        url: 'https://www.cohnreznick.com/industries/consumer-and-industrial/hospitality',
-                      },
-                      {
-                        label: 'Manufacturing & Distribution',
-                        url: 'https://www.cohnreznick.com/industries/consumer-and-industrial/manufacturing-and-distribution',
-                      },
-                    ],
-                  },
-                  link: {
-                    label: 'Consumer and Industrial',
-                    url: 'javascript:void(0)',
                   },
                 },
               ],
@@ -355,8 +312,8 @@ export const HEADER_LINK = {
                     ],
                   },
                   link: {
-                    label: 'https://www.cohnreznick.com/industries/public-sector',
-                    url: 'javascript:void(0)',
+                    label: 'Public Sector',
+                    url: 'https://www.cohnreznick.com/industries/public-sector',
                   },
                 },
               ],
@@ -641,8 +598,16 @@ export const HEADER_LINK = {
                     title: '',
                     children: [
                       {
+                        label: 'AI and Data Automation',
+                        url: 'https://www.cohnreznick.com/services/advisory/digital/ai-and-data-automation',
+                      },
+                      {
                         label: 'Cloud Applications',
                         url: 'https://www.cohnreznick.com/services/advisory/digital/cloud-applications',
+                      },
+                      {
+                        label: 'Data and Analytics',
+                        url: 'https://www.cohnreznick.com/services/advisory/digital/data-and-analytics',
                       },
                       {
                         label: 'Digital Strategy',
@@ -1224,7 +1189,7 @@ export const HEADER_LINK = {
                   },
                   link: {
                     label: 'Early Career Opportunities',
-                    url: 'https://www.cohnreznick.com/careers/early-career-opportunities?',
+                    url: 'https://www.cohnreznick.com/careers/early-career-opportunities',
                   },
                 },
               ],
