@@ -56,6 +56,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
   };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // @ts-ignore
     const target = e.target.query;
     const newval = target.value.replace('&', 'and');
     router.replace(`/search?q=${newval}`);
@@ -125,7 +126,34 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
         </Presence>
         <Presence present={!loading}>
           <>
-            <PreviewSearch.Results defaultQueryResult={queryResult}>
+            {articleSuggestions.length > 0 && (
+              <PreviewSearch.Suggestions
+                className={`${articleSuggestions.length > 0 ? 'suggesion' : 'suggesion hide'} `}
+              >
+                {articleSuggestions.length > 0 && (
+                  <PreviewSearch.SuggestionsGroup id="auto_named_suggester">
+                    <ul>
+                      {articleSuggestions.map(({ text }, index) => (
+                        <li key={index} className={`${text !== null ? '' : 'hide'} `}>
+                          <PreviewSearch.SuggestionTrigger id={text} key={text} asChild>
+                            <a
+                              onClick={(e) => {
+                                e.preventDefault();
+                                router.replace(`/search?q=${text}`);
+                              }}
+                            >
+                              {text}
+                            </a>
+                          </PreviewSearch.SuggestionTrigger>
+                        </li>
+                      ))}
+                    </ul>
+                  </PreviewSearch.SuggestionsGroup>
+                )}
+              </PreviewSearch.Suggestions>
+            )}
+
+            {/* <PreviewSearch.Results defaultQueryResult={articleSuggestions}>
               {({ isFetching: loading, data: { content: articles = [] } = {} }) => (
                 <PreviewSearch.Items
                   data-loading={loading}
@@ -159,7 +187,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
                   </ul>
                 </PreviewSearch.Items>
               )}
-            </PreviewSearch.Results>
+            </PreviewSearch.Results> */}
           </>
         </Presence>
       </PreviewSearch.Content>
