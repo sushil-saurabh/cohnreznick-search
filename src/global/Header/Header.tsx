@@ -3,6 +3,7 @@
 
 import hamMenu from '@/images/ham-menu.svg';
 import sendMail from '@/images/send-mail.svg';
+import { useContent } from '@/provider/content/content';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,9 +12,10 @@ import React from 'react';
 const LeftPanel = dynamic(() => import('./LeftPanel'), { ssr: false });
 const SearchInput = dynamic(() => import('../../components/widgets/SearchInput/searchInput.component'), { ssr: false });
 const Header = (): JSX.Element => {
+  const content = useContent();
   const [isMegaMenu, setIsMegaMenu] = React.useState(false);
   const [isSrolled, setIsScrolled] = React.useState(false);
-  const [isSearchBoxOpen, setIsSearchBoxOpen] = React.useState(false);
+
   const updateMegaMenuState = (value: boolean) => {
     setIsMegaMenu(value);
   };
@@ -32,9 +34,8 @@ const Header = (): JSX.Element => {
     };
   }, []);
   React.useEffect(() => {
-    document.body.onclick = () => setIsSearchBoxOpen(false);
+    //document.body.onclick = () => setIsSearchBoxOpen(false);
   }, []);
-
   return (
     <>
       <header className={`header ${isSrolled ? 'scrolled' : ''}`}>
@@ -68,12 +69,6 @@ const Header = (): JSX.Element => {
                   )}
                 </div>
                 <div className="menu-right-control">
-                  <div className="search-section">
-                    <div className={`search-box-dark ${isSearchBoxOpen ? 'searchshow' : ''}`}>
-                      <SearchInput />
-                    </div>
-                  </div>
-
                   <Link href="https://www.cohnreznick.com/contact-us" className="header-icon-actions header-mail-dark">
                     <Image src={sendMail.src} alt="send" width={'22'} height={'22'} />
                     <div className="floating-hover">Contact us</div>
@@ -83,7 +78,7 @@ const Header = (): JSX.Element => {
                     className="header-icon-actions header-search-dark"
                     onClick={(ev) => {
                       ev.stopPropagation();
-                      setIsSearchBoxOpen(true);
+                      content.setIsSearchBoxOpen(true);
                     }}
                   >
                     <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +89,11 @@ const Header = (): JSX.Element => {
                       <path d="M13.2175 15.1465L16.0136 17.9426" stroke="#ffffff" />
                     </svg>
                   </Link>
-
+                  <div className="search-section">
+                    <div className={`search-box-dark ${content.isSearchBoxOpen ? 'searchshow' : ''}`}>
+                      <SearchInput defaultItemsPerPage={8} rfkId="rfkid_6" />
+                    </div>
+                  </div>
                   <div className="hamburger-menu" onClick={() => updateMegaMenuState(true)}>
                     <Image src={hamMenu.src} alt="hamburger" fill />
                   </div>

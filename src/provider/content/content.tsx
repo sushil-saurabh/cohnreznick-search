@@ -1,19 +1,23 @@
 import React from 'react';
 
-interface IGlobalSearchProps {
+export interface IContentProps {
   windowWidth: number;
   isBodyClassToggled: boolean;
   setWindowWidth: (e: any) => void;
   setIsBodyClassToggled: (e: any) => void;
   toggleBodyClass: (e: any) => void;
+  isSearchBoxOpen: boolean;
+  setIsSearchBoxOpen: (e: any) => void;
 }
 
-export const GlobalSearchContext = React.createContext<IGlobalSearchProps>({
+export const ContentContext = React.createContext<IContentProps>({
   windowWidth: 0,
   isBodyClassToggled: false,
   setWindowWidth: () => {},
   setIsBodyClassToggled: () => {},
   toggleBodyClass: () => {},
+  isSearchBoxOpen: false,
+  setIsSearchBoxOpen: () => {},
 });
 
-export const useGlobalSearch = () => React.useContext(GlobalSearchContext);
+export const useContent = () => React.useContext(ContentContext);

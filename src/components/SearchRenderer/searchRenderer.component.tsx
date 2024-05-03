@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import { useGlobalSearch } from '@/provider/content/content';
+import { useContent } from '@/provider/content/content';
 import { CardViewSwitcher } from '@sitecore-search/ui';
 import dynamic from 'next/dynamic';
 import React from 'react';
@@ -15,7 +15,7 @@ const Facets = dynamic(import('../widgets/Facets/facets.component'));
 const Skeleton = dynamic(import('react-loading-skeleton'));
 const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
   const [view, setView] = React.useState(CardViewSwitcher.CARD_VIEW_LIST);
-  const globaleValue = useGlobalSearch();
+  const globaleValue = useContent();
 
   const {
     onSortChange,
@@ -47,7 +47,7 @@ const SearchRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
         </div>
         <div className="resultSection">
           <div className="PageSearch">
-            <SearchInput />
+            <SearchInput defaultItemsPerPage={8} rfkId="rfkid_6" />
           </div>
           {isFetching || totalItems ? (
             <>

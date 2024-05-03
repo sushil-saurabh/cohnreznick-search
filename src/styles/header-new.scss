@@ -224,7 +224,7 @@
         .search-box-dark {
           width: 560px;
           position: absolute;
-          right: -145px;
+          right: 40px;
           top: -26px;
           z-index: 2;
           display: none;
@@ -242,7 +242,7 @@
             width: 100%;
             position: fixed;
             left: 0;
-            top: 72px;
+            top: 70px;
             border-radius: 0;
           }
 
@@ -471,7 +471,7 @@
 
     @media (max-width: 991px) {
       padding: 16px 0 10px;
-      z-index: 999;
+      z-index: 9999;
     }
     .navbar-fixed-top .header-main-nav {
       .navbar-brand.logo-black {
@@ -482,6 +482,8 @@
       }
 
       .menu-right-control {
+        color: #00182e;
+
         .hamburger-menu {
           width: 70px;
           height: 62px;
@@ -566,6 +568,7 @@
           width: 20px;
           height: 20px;
         }
+
         .header-search-dark::before {
           width: 14px;
           height: 16px;
@@ -1302,6 +1305,6 @@ body.facetsOpen {
 }
 body.facetsOpen {
   .header {
-    z-index: 9;
+    z-index: 99;
   }
 }

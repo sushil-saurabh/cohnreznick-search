@@ -138,4 +138,10 @@ body.open[data-scroll-locked='1'] {
   &::-webkit-scrollbar {
     opacity: 0;
   }
+  .PageSearch {
+    z-index: -1;
+  }
+}
+body.open > span[data-radix-focus-guard] + #__next .header {
+  z-index: 9999;
 }
