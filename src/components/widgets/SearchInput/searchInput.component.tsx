@@ -57,7 +57,8 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target.query;
-    router.replace(`/search?q=${target.value}`);
+    const newval = target.value.replace('&', 'and');
+    router.replace(`/search?q=${newval}`);
     target.value = '';
   };
 
