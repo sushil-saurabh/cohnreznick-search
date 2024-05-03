@@ -1,5 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-const ORIGIN = ['https://cohnreznick-sitecore-qa-358280-cm.azurewebsites.net'];
+const ORIGIN = [
+  'https://cohnreznick-sitecore-qa-358280-cm.azurewebsites.net',
+  'https://cohnreznick-search-dev.vercel.app',
+];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const reqOrigin = req.headers.origin as string;
