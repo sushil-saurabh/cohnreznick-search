@@ -69,12 +69,6 @@ const Header = (): JSX.Element => {
                   )}
                 </div>
                 <div className="menu-right-control">
-                  <div className="search-section">
-                    <div className={`search-box-dark ${content.isSearchBoxOpen ? 'searchshow' : ''}`}>
-                      <SearchInput defaultItemsPerPage={8} rfkId="rfkid_6" />
-                    </div>
-                  </div>
-
                   <Link href="https://www.cohnreznick.com/contact-us" className="header-icon-actions header-mail-dark">
                     <Image src={sendMail.src} alt="send" width={'22'} height={'22'} />
                     <div className="floating-hover">Contact US</div>
@@ -95,7 +89,11 @@ const Header = (): JSX.Element => {
                       <path d="M13.2175 15.1465L16.0136 17.9426" stroke="#ffffff" />
                     </svg>
                   </Link>
-
+                  <div className="search-section">
+                    <div className={`search-box-dark ${content.isSearchBoxOpen ? 'searchshow' : ''}`}>
+                      <SearchInput defaultItemsPerPage={8} rfkId="rfkid_6" />
+                    </div>
+                  </div>
                   <div className="hamburger-menu" onClick={() => updateMegaMenuState(true)}>
                     <Image src={hamMenu.src} alt="hamburger" fill />
                   </div>
