@@ -76,7 +76,7 @@ const Header = (): JSX.Element => {
 
                   <Link href="https://www.cohnreznick.com/contact-us" className="header-icon-actions header-mail-dark">
                     <Image src={sendMail.src} alt="send" width={'22'} height={'22'} />
-                    <div className="floating-hover">Contact US</div>
+                    <div className="floating-hover">Contact us</div>
                   </Link>
                   <Link
                     href="javacript:void(0);"
