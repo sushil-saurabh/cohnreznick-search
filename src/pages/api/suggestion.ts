@@ -1,22 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-// const ORIGIN = [
-//   'https://cohnreznick-sitecore-qa-358280-cm.azurewebsites.net',
-//   'https://cohnreznick-search-dev.vercel.app',
-// ];
+const ORIGIN = [
+  'https://cohnreznick-sitecore-qa-358280-cm.azurewebsites.net',
+  'https://cohnreznick-search-dev.vercel.app',
+];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // TODO for latter use
-  // const reqOrigin = req.headers.origin as string;
-  // const host = req.headers.host as string;
-  // const ip = req.connection.remoteAddress;
-  // if (!host.startsWith('localhost') || ip !== '::1') {
-  //   if (ORIGIN.includes(reqOrigin)) {
-  //     res.setHeader('Access-Control-Allow-Origin', reqOrigin);
-  //   } else {
-  //     res.status(403).json({ status: true, data: null, message: 'Origin should be whitelisted.' });
-  //     return;
-  //   }
-  // }
+  const reqOrigin = req.headers.origin as string;
+  const host = req.headers.host as string;
+  const ip = req.connection.remoteAddress;
+  if (!host.startsWith('localhost') || ip !== '::1') {
+    if (ORIGIN.includes(reqOrigin)) {
+      res.setHeader('Access-Control-Allow-Origin', reqOrigin);
+    } else {
+      res.status(403).json({ status: true, data: null, message: 'Origin should be whitelisted.' });
+      return;
+    }
+  }
 
   const CKEY = process.env.NEXT_PUBLIC_SEARCH_CUSTOMER_KEY?.split('-')[1];
   const URL = `${process.env.NEXT_PUBLIC_SEARCH_SUGGESTION_END_POINT}/v2/${CKEY}`;
