@@ -15,9 +15,9 @@ export default function Events() {
       <Layout>
         <SearchResultsWidget
           key={q as string}
-          rfkId="rfkid_events"
+          rfkId="rkfid_govcon360"
           defaultKeyphrase={q as string}
-          defaultSortType={SEARCH_SORT_BY_FILTER.EVENTS_DATES}
+          defaultSortType={SEARCH_SORT_BY_FILTER.PUBLISH_DATE}
           defaultPage={1}
           defaultItemsPerPage={10}
           componentType="govcon360"
