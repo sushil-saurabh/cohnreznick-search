@@ -15,7 +15,7 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
               >
                 PublishedDate : {a.publish_date}
                 <span>
-                  {a.author_name ? '|' : ''} {a.author_name}
+                  {a.author_name ? ' |' : ''} {a.author_name}
                 </span>
               </div>
               <HighlightComponent
