@@ -28,7 +28,7 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
                   highlightElement={HIGHLIGHT_DATA.highlightTag}
                 /> */}
                 <div className="Type">
-                  <span>{a.content_type ? a.content_type : ''}</span>
+                  <span>{a.page_type ? a.page_type : ''}</span>
                   {a.selected_industries?.map((itm: string, index: number) => <span key={index}>{itm}</span>)}
                   {a.selected_services?.map((itm: string, index: number) => <span key={index}>{itm}</span>)}
                 </div>
