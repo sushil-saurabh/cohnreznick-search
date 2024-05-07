@@ -272,3 +272,33 @@
   background-color: #fff;
   display: block;
 }
+
+.morelessbtn {
+  padding: 0 20px;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: #007cbf;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  text-align: left;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  &.less {
+    color: #313a45;
+    font-weight: 400;
+    &::before {
+      content: '-';
+    }
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+  &::before {
+    content: '+';
+    display: inline-block;
+    margin-right: 4px;
+  }
+}
