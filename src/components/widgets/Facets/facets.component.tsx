@@ -2,12 +2,23 @@ import type { ICheckedFacets } from '@/utils/common.type';
 import { CheckIcon } from '@radix-ui/react-icons';
 import { useSearchResultsSelectedFilters } from '@sitecore-search/react';
 import { AccordionFacets, SearchResultsAccordionFacets } from '@sitecore-search/ui';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './facets.module.scss';
 import type { IFacetsProps, IValue } from './facets.type';
+const DEFAULT_ITEMS = 10;
 const Facets = ({ fields }: IFacetsProps): JSX.Element => {
   const selectedFacetsFromApi = useSearchResultsSelectedFilters();
   const { facets, onFacetClick } = fields;
+  const [showAll, setShowAll] = useState(new Array(facets.length).fill(false));
+
+  const handleShowMore = (listIndex: any) => {
+    setShowAll({ ...showAll, [listIndex]: true });
+  };
+
+  const handleShowLess = (listIndex: any) => {
+    setShowAll({ ...showAll, [listIndex]: false });
+  };
+
   const isChecked = React.useCallback(
     (item: IValue) => {
       return (selectedFacetsFromApi as ICheckedFacets[]).some((t) => {
@@ -32,7 +43,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
             </AccordionFacets.Header>
             <AccordionFacets.Content className="facetsContentOuter">
               <AccordionFacets.ValueList className="facetsList facetValues">
-                {f.value.map((v, index) => (
+                {f.value.slice(0, showAll[i] ? f.value.length : DEFAULT_ITEMS).map((v, index) => (
                   <AccordionFacets.Item
                     {...{ index, facetValueId: v.id, selected: isChecked(v) }}
                     key={`${v.id}_${index}`}
@@ -48,6 +59,16 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
                     </AccordionFacets.ItemLabel>
                   </AccordionFacets.Item>
                 ))}
+                {!showAll[i] && f.value.length > DEFAULT_ITEMS && (
+                  <button className="morelessbtn" onClick={() => handleShowMore(i)}>
+                    Show More
+                  </button>
+                )}
+                {showAll[i] && (
+                  <button className="morelessbtn less" onClick={() => handleShowLess(i)}>
+                    Show Less
+                  </button>
+                )}
               </AccordionFacets.ValueList>
             </AccordionFacets.Content>
           </AccordionFacets.Facet>
