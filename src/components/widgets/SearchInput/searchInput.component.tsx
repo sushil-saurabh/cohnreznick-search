@@ -23,14 +23,19 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
     queryResult: {
       isFetching,
       isLoading,
-      data: { suggestion: { auto_named_suggester: articleSuggestions = [] } = {} } = {},
+      data: {
+        suggestion: { auto_named_suggester: articleSuggestions = [], auto_complete: autoSuggestions = [] } = {},
+      } = {},
     },
   } = usePreviewSearch({
     query: (query) => {
       query.getRequest();
     },
     state: {
-      suggestionsList: [{ suggestion: 'auto_named_suggester', max: 10 }],
+      suggestionsList: [
+        { suggestion: 'auto_named_suggester', max: 10 },
+        { suggestion: 'auto_complete', max: 10 },
+      ],
       itemsPerPage: defaultItemsPerPage,
     },
   });
@@ -40,7 +45,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
     (event: any) => {
       const target = event.target;
       setSearchTerm(target.value);
-      if (target.value.length > 0) {
+      if (target.value.length >= 0) {
         setClearTerm(true);
       }
       if (target.value.length >= 3) {
@@ -72,6 +77,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
               <PreviewSearch.Input
                 className="searchControl"
                 onChange={keyphraseHandler}
+                onClickCapture={keyphraseHandler}
                 autoComplete="off"
                 placeholder="Type to search..."
                 name="query"
@@ -126,14 +132,12 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
         </Presence>
         <Presence present={!loading}>
           <>
-            {articleSuggestions.length > 0 && (
-              <PreviewSearch.Suggestions
-                className={`${articleSuggestions.length > 0 ? 'suggesion' : 'suggesion hide'} `}
-              >
-                {articleSuggestions.length > 0 && (
+            {autoSuggestions.length > 0 ? (
+              <PreviewSearch.Suggestions className={`${autoSuggestions.length > 0 ? 'suggesion' : 'suggesion hide'} `}>
+                {autoSuggestions.length > 0 && (
                   <PreviewSearch.SuggestionsGroup id="auto_named_suggester">
                     <ul>
-                      {articleSuggestions.map(({ text }, index) => (
+                      {autoSuggestions.map(({ text }, index) => (
                         <li key={index} className={`${text !== null ? '' : 'hide'} `}>
                           <PreviewSearch.SuggestionTrigger id={text} key={text} asChild>
                             <a
@@ -151,6 +155,33 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
                   </PreviewSearch.SuggestionsGroup>
                 )}
               </PreviewSearch.Suggestions>
+            ) : (
+              articleSuggestions.length > 0 && (
+                <PreviewSearch.Suggestions
+                  className={`${articleSuggestions.length > 0 ? 'suggesion' : 'suggesion hide'} `}
+                >
+                  {articleSuggestions.length > 0 && (
+                    <PreviewSearch.SuggestionsGroup id="auto_named_suggester">
+                      <ul>
+                        {articleSuggestions.map(({ text }, index) => (
+                          <li key={index} className={`${text !== null ? '' : 'hide'} `}>
+                            <PreviewSearch.SuggestionTrigger id={text} key={text} asChild>
+                              <a
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  router.replace(`/search?q=${text}`);
+                                }}
+                              >
+                                {text}
+                              </a>
+                            </PreviewSearch.SuggestionTrigger>
+                          </li>
+                        ))}
+                      </ul>
+                    </PreviewSearch.SuggestionsGroup>
+                  )}
+                </PreviewSearch.Suggestions>
+              )
             )}
 
             {/* <PreviewSearch.Results defaultQueryResult={articleSuggestions}>
