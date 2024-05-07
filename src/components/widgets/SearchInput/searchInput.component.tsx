@@ -48,7 +48,7 @@ export const SearchAutoSuggestInput = React.memo(({ defaultItemsPerPage = 8 }: a
       if (target.value.length >= 0) {
         setClearTerm(true);
       }
-      if (target.value.length >= 3) {
+      if (target.value.length >= 0) {
         onKeyphraseChange({ keyphrase: target.value });
       }
     },
