@@ -42,7 +42,7 @@ const InsightsRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
         className={`coveoMainSection insights ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
       >
         <div className="mobilebg" id="filterButtonMobile" onClick={globaleValue.toggleBodyClass} />
-        <div className="facetSection">
+        <div className="facetSection insights">
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
         <div className="resultSection">

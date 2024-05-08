@@ -37,7 +37,7 @@ const Facets = ({ fields }: IFacetsProps): JSX.Element => {
         }}
       >
         {facets.map((f, i) => (
-          <AccordionFacets.Facet facetId={f.name} key={`${f.name}_${i}_${f.label}`} className="facetHeader">
+          <AccordionFacets.Facet facetId={f.name} key={`${f.name}_${i}_${f.label}`} className={`facetHeader ${f.name}`}>
             <AccordionFacets.Header className="facetHeaderTitle">
               <AccordionFacets.Trigger className="facetsbtns">{f.label}</AccordionFacets.Trigger>
             </AccordionFacets.Header>

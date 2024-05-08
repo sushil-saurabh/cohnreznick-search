@@ -38,10 +38,440 @@
     }
   }
 }
-
 .facetsContentOuter {
   .facetsList {
     list-style: none;
     margin: 0;
+  }
+}
+
+.facetSection {
+  &.defaultSearch {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.facetSection {
+  &.defaultSearch {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.events {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.news {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.news {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.insights {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_resource_center_topics {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.Page_Type {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.crCenter {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_resource_center_topics {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.Page_Type {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.tax {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_resource_center_topics {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.Page_Type {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.gov360 {
+    .facetHeader {
+      &.selected_services {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_industries {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.selected_resource_center_topics {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+      &.Page_Type {
+        .facetValues {
+          li {
+            label {
+              color: #313a45;
+              letter-spacing: 0.8px;
+              font-size: 14px;
+              font-weight: 500;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
