@@ -43,7 +43,7 @@ const EventRenderer = ({ fields }: ISearchRendererProps): JSX.Element => {
         className={`coveoMainSection events ${isFetching || totalItems ? '' : 'full'} ${globaleValue.windowWidth > 991 ? '' : 'smallScreen'}`}
       >
         <div className="mobilebg" id="filterButtonMobile" onClick={globaleValue.toggleBodyClass} />
-        <div className="facetSection">
+        <div className="facetSection events">
           {!isLoading ? <Facets fields={{ facets, onFacetClick }} /> : <Skeleton count={5} height={40} />}
         </div>
         <div className="resultSection">
