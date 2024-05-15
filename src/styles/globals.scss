@@ -559,3 +559,75 @@ body.facetsOpen {
     z-index: 9;
   }
 }
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+.modal-overlay {
+  width: 100%;
+  max-width: 955px;
+  height: 540px;
+  position: fixed;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, 0);
+  border: 1px solid #888;
+  z-index: 99;
+  @media (max-width: 991px) {
+    height: 438px;
+    max-width: 775px;
+  }
+  @media (max-width: 768px) {
+    height: 400px;
+    max-width: 700px;
+  }
+  @media (max-width: 480px) {
+    height: 258px;
+    max-width: 460px;
+  }
+  .modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .video-js {
+      width: 100% !important;
+      height: 100% !important;
+      position: absolute;
+    }
+  }
+  .popupheader {
+    background-color: #323e48;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: right;
+    padding: 10px;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+    button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: 700;
+      width: 30px;
+      height: 30px;
+      transition: all 0.4s ease-in-out;
+      opacity: 1;
+      border: 0;
+      background-color: transparent;
+      cursor: pointer;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+.modal-open {
+  overflow: hidden;
+  padding-right: 17px;
+}

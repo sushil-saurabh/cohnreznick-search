@@ -1,13 +1,43 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import type { ISearchContentListProps } from './searchContentList.type';
 import { HIGHLIGHT_DATA } from '@/utils/helper';
 import { HighlightComponent, getDescription } from '@/components/widgets/Highlights/highlights';
+import ModalPopUp from '@/components/widgets/ModalPopUp/modalPopup.component';
+import BrightcovePlayer from '@/components/widgets/BrightcovePlayer/brightCovePlayer';
+
 const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoID, setVideoId] = useState('');
+  const setIdOnClick = (id: any) => {
+    setVideoId(id);
+    setIsModalOpen(true);
+    document.body.classList.add('modal-open');
+  };
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.classList.add('modal-open');
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.classList.remove('modal-open');
+  };
+
   return (
     <>
       <div className="searchArticlesListView">
         {fields.map((a) => (
           <div key={`${a.id}@${a.source_id}`}>
+            <a onClick={() => setIdOnClick('6299277552001')}>Video Id</a>
+            <a
+              href="https://www.cohnreznick.com/-/media/resources/cohnreznick_2023_annual_report.pdf"
+              target="_blank"
+              rel="noreferrer"
+              download
+            >
+              PDF
+            </a>
             <Link title={a.name} href={`${a.event_redirect_url !== null ? a.event_redirect_url : a.url} `}>
               <div className="Title">{a.title ? a.title : a.name}</div>
               <div
@@ -36,6 +66,9 @@ const SearchContentList = ({ fields }: ISearchContentListProps): JSX.Element => 
             </Link>
           </div>
         ))}
+        <ModalPopUp isOpen={isModalOpen} onClose={closeModal}>
+          <BrightcovePlayer videoId={videoID} />
+        </ModalPopUp>
       </div>
     </>
   );
